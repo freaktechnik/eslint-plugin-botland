@@ -1,4 +1,4 @@
-"use strict";
+
 
 // All of these snippets were written by Pnoexz and are explained in this gist:
 // https://gist.github.com/Pnoexz/3886724a2441ccca68c29ab7290c90ab

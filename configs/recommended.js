@@ -1,8 +1,8 @@
 "use strict";
 
-const api = require("../api.json");
+const api = require("../api.json"),
 
-const globals = {};
+    globals = {};
 
 for(const terminator of api.terminators) {
     globals[terminator] = true;
