@@ -1,5 +1,7 @@
 # eslint-plugin-botland
 
+[![Build Status](https://travis-ci.com/freaktechnik/eslint-plugin-botland.svg?branch=master)](https://travis-ci.com/freaktechnik/eslint-plugin-botland)
+
 Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 
 ## Rules
