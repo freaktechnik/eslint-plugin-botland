@@ -2,6 +2,9 @@
     "plugins": [
         "eslint-plugin"
     ],
+    "rules": {
+        "node/no-unpublished-require": 0
+    },
     "extends": [
         "@freaktechnik/eslint-config-node",
         "plugin:eslint-plugin/rules-recommended"
