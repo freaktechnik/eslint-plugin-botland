@@ -1,0 +1,9 @@
+{
+    "plugins": [
+        "eslint-plugin"
+    ],
+    "extends": [
+        "@freaktechnik/eslint-config-test",
+        "plugin:eslint-plugin/tests-recommended"
+    ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "eslint-plugin-botland",
+  "version": "1.0.0",
+  "description": "Lint your botland JS scripts",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js package.json rules/ test/ configs/ --ext js,json",
+    "test": "nyc ava",
+    "coverage": "nyc report && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freaktechnik/eslint-plugin-botland.git"
+  },
+  "author": "Martin Giger (https://humanoids.be)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freaktechnik/eslint-plugin-botland/issues"
+  },
+  "homepage": "https://github.com/freaktechnik/eslint-plugin-botland#readme",
+  "devDependencies": {
+    "@freaktechnik/eslint-config-node": "^6.4.4",
+    "@freaktechnik/eslint-config-test": "^6.4.4",
+    "ava": "^0.25.0",
+    "codecov": "^3.0.4",
+    "eslint": "^5.4.0",
+    "eslint-ava-rule-tester": "^2.0.2",
+    "eslint-plugin-eslint-plugin": "^1.4.0",
+    "nyc": "^12.0.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=5.4.0"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "botland"
+  ],
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE",
+    "api.json",
+    "rules/*.js",
+    "configs/*.js"
+  ]
+}

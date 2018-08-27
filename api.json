@@ -1,0 +1,93 @@
+{
+    "directions": [
+        "up",
+        "down",
+        "forward",
+        "backward",
+        "left",
+        "right"
+    ],
+    "terminators": [
+        "move",
+        "moveTo",
+        "teleport",
+        "pursue",
+        "pursueBot",
+        "fireLasers",
+        "fireMissiles",
+        "fireArtillery",
+        "melee",
+        "zap",
+        "layMine",
+        "cloak",
+        "reflect",
+        "EMP",
+        "activateSensors",
+        "shield",
+        "repair"
+    ],
+    "functions": [
+        "getX",
+        "getY",
+        "canMove",
+        "canMoveTo",
+        "canCloak",
+        "canZap",
+        "canEMP",
+        "canReflect",
+        "canLayMine",
+        "isCloaked",
+        "isZapping",
+        "isReflecting",
+        "getDistanceTo",
+        "getEntityAt",
+        "isEnemyMineAt",
+        "willMissilesHit",
+        "willLasersHit",
+        "findClosestEnemyBot",
+        "findClosestResource",
+        "canSense",
+        "canSenseEntity",
+        "exists",
+        "reduceEntities",
+        "getLife",
+        "findEntities",
+        "findEntitiesInRange",
+        "filterEntities",
+        "precentChance",
+        "randInt",
+        "clampNumber",
+        "size",
+        "abs",
+        "floor",
+        "ceil",
+        "round",
+        "min",
+        "max"
+    ],
+    "globals": [
+        "x",
+        "y",
+        "arenaWidth",
+        "arenaHeight"
+    ],
+    "entrypoints": [
+        "update",
+        "init"
+    ],
+    "requiredEntry": [
+        "update"
+    ],
+    "aliases": {
+        "willMoveWork": "canMove",
+        "randomInteger": "randInt",
+        "isDefined": "exists",
+        "distanceTo": "getDistanceTo",
+        "pursueBot": "moveTo",
+        "pursue": "moveTo",
+        "canSense": "canSenseEntity",
+        "emp": "EMP",
+        "canEmp": "canEMP",
+        "count": "size"
+    }
+}
