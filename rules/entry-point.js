@@ -12,10 +12,13 @@ module.exports = {
                        statement.expression.type === "AssignmentExpression" &&
                        statement.expression.operator === "=" &&
                        statement.expression.left.type === "Identifier" &&
-                       api.requiredEntry.includes(statement.expression.left.name) &&
                        statement.expression.right.type === "FunctionExpression") {
-                        entries.add(statement.expression.left.name);
-                        break;
+                        if(api.requiredEntry.includes(statement.expression.left.name)) {
+                            entries.add(statement.expression.left.name);
+                        }
+                        if(api.entrypoints.includes(statement.expression.left.name)) {
+                            context.markVariableAsUsed(statement.expression.left.name);
+                        }
                     }
                 }
                 for(const entry of api.requiredEntry) {
@@ -31,7 +34,7 @@ module.exports = {
     },
     meta: {
         docs: {
-            description: "Ensures the required turn entry point exists and is a function",
+            description: "Ensures the required turn entry point exists and is a function. Also marks entry points as used variables.",
             recommended: true
         },
         schema: []
