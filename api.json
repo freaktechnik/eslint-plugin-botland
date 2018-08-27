@@ -78,6 +78,10 @@
     "requiredEntry": [
         "update"
     ],
+    "arrayVars": [
+        "array1",
+        "array2"
+    ],
     "aliases": {
         "willMoveWork": "canMove",
         "randomInteger": "randInt",

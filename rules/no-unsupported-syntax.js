@@ -1,11 +1,12 @@
 "use strict";
 
-const rejectNode = (context) => (node) => {
-    context.report({
-        node,
-        message: `${node.type} is not supported`
-    });
-};
+const api = require("../api.json"),
+    rejectNode = (context) => (node) => {
+        context.report({
+            node,
+            message: `${node.type} is not supported`
+        });
+    };
 
 module.exports = {
     create(context) {
@@ -35,7 +36,16 @@ module.exports = {
             "TryStatement": reject,
             "VariableDeclaration": reject,
             "ImportDeclaration": reject,
-            "ExportDeclaration": reject
+            "ExportDeclaration": reject,
+            "ArrayExpression"(node) {
+                if(node.parent.type !== "CallExpression" &&
+                   (node.parent.type !== "AssignmentExpression" ||
+                    node.parent.left.type !== "Identifier" ||
+                    !api.arrayVars.includes(node.parent.left.name))) {
+                    reject(node);
+                }
+            },
+            "ObjectExpression": reject
         };
     },
     meta: {

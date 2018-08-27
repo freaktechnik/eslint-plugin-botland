@@ -38,6 +38,7 @@ module.exports = {
     rules: {
         "no-unsupported-syntax": "error",
         "entry-point": "error",
+        "only-global-function-declaration": "error",
         "no-terminator-in-init": "warn",
         "prefer-function": "warn"
     },

@@ -10,7 +10,12 @@ const ruleTester = new AvaRuleTester(test, {
 });
 
 ruleTester.run('no-unsupported-syntax', rule, {
-    valid: [ 'update = function() {};' ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
+    valid: [
+        'update = function() {};',
+        `update = function() {
+            array1 = [];
+        }`
+    ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {
             code: 'init = function*() {};',
@@ -41,6 +46,22 @@ ruleTester.run('no-unsupported-syntax', rule, {
             errors: [ {
                 message: "VariableDeclaration is not supported",
                 column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: '[]',
+            errors: [ {
+                message: "ArrayExpression is not supported",
+                column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: '({})',
+            errors: [ {
+                message: "ObjectExpression is not supported",
+                column: 2,
                 line: 1
             } ]
         }
