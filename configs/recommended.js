@@ -21,7 +21,8 @@ module.exports = {
     plugins: [ 'botland' ],
     rules: {
         "no-unsupported-syntax": "error",
-        "entry-point": "error"
+        "entry-point": "error",
+        "no-terminator-in-init": "warn"
     },
     globals
 };

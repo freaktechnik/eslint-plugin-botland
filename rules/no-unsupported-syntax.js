@@ -37,5 +37,12 @@ module.exports = {
             "ImportDeclaration": reject,
             "ExportDeclaration": reject
         };
+    },
+    meta: {
+        docs: {
+            description: "Bot Land only supports a sub-set of JS syntax",
+            recommended: true
+        },
+        schema: []
     }
 };

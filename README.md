@@ -9,6 +9,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Checks that the script has the required `update` function.
 - `no-unsupported-syntax`
   Checks for unsupported JS syntax features.
+- `no-terminator-in-init`
+  Terminators in the init entry point are a no-op.
 
 ## Configs
 - `recommended`
@@ -19,3 +21,4 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   |------|-------|
   | `entry-point` | error |
   | `no-unsupported-syntax` | error |
+  | `no-terminator-in-init` | warning |
