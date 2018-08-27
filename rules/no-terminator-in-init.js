@@ -44,24 +44,19 @@ const walkBodies = (node, cbk) => {
 module.exports = {
     create(context) {
         return {
-            'Program'(node) {
-                for(const statement of node.body) {
-                    if(statement.type === "ExpressionStatement" &&
-                       statement.expression.type === "AssignmentExpression" &&
-                       statement.expression.operator === "=" &&
-                       statement.expression.left.type === "Identifier" &&
-                       statement.expression.left.name === "init" &&
-                       statement.expression.right.type === "FunctionExpression") {
-                        walkBodies(statement.expression.right, (node) => {
-                            if(node.callee.type === "Identifier" &&
-                               api.terminators.includes(node.callee.name)) {
-                                context.report({
-                                    node,
-                                    message: "Terminators in the init entry point have no effect"
-                                });
-                            }
-                        });
-                    }
+            'Program ExpressionStatement > AssignmentExpression[operator=\"=\"]'(node) {
+                if(node.left.type === "Identifier" &&
+                   node.left.name === "init" &&
+                   node.right.type === "FunctionExpression") {
+                    walkBodies(node.right, (node) => {
+                        if(node.callee.type === "Identifier" &&
+                           api.terminators.includes(node.callee.name)) {
+                            context.report({
+                                node,
+                                message: "Terminators in the init entry point have no effect"
+                            });
+                        }
+                    });
                 }
             }
         };
