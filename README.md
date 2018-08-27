@@ -21,6 +21,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   `use-guarded-terminator` rule, since code after terminators can be reached.
 - `arg-types` Check argument count and types for methods. Should at the very least
   be able to check number of args, type of literals and direction literals.
+- `use-array-variables` Enforce usage of array1 and 2 for array manipulation.
 
 ## Configs
 - `recommended`
