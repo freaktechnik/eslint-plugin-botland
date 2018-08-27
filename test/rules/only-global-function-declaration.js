@@ -26,6 +26,21 @@ ruleTester.run('only-global-function-declaration', rule, {
         },
         {
             code: '(function() { update = function() {}; })()',
+            errors: [
+                {
+                    message: "Top level statements must be function declarations",
+                    column: 1,
+                    line: 1
+                },
+                {
+                    message: "Function declarations may not be nested",
+                    column: 24,
+                    line: 1
+                }
+            ]
+        },
+        {
+            code: '"a"',
             errors: [ {
                 message: "Top level statements must be function declarations",
                 column: 1,
@@ -33,10 +48,10 @@ ruleTester.run('only-global-function-declaration', rule, {
             } ]
         },
         {
-            code: '"a"',
+            code: "a = function() { b = function() {}; };",
             errors: [ {
-                message: "Top level statements must be function declarations",
-                column: 1,
+                message: "Function declarations may not be nested",
+                column: 22,
                 line: 1
             } ]
         }

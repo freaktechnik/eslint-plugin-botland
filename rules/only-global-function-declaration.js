@@ -24,6 +24,12 @@ module.exports = {
                         message: "Top level statements must be function declarations"
                     });
                 }
+            },
+            "FunctionExpression FunctionExpression"(node) {
+                context.report({
+                    node,
+                    message: "Function declarations may not be nested"
+                });
             }
         };
     },
