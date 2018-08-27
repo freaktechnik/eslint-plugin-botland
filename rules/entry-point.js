@@ -12,13 +12,10 @@ module.exports = {
                        statement.expression.type === "AssignmentExpression" &&
                        statement.expression.operator === "=" &&
                        statement.expression.left.type === "Identifier" &&
-                       statement.expression.right.type === "FunctionExpression") {
-                        if(api.requiredEntry.includes(statement.expression.left.name)) {
-                            entries.add(statement.expression.left.name);
-                        }
-                        if(api.entrypoints.includes(statement.expression.left.name)) {
-                            context.markVariableAsUsed(statement.expression.left.name);
-                        }
+                       statement.expression.right.type === "FunctionExpression" &&
+                       api.requiredEntry.includes(statement.expression.left.name)) {
+                        entries.add(statement.expression.left.name);
+                        break;
                     }
                 }
                 for(const entry of api.requiredEntry) {
@@ -28,6 +25,14 @@ module.exports = {
                             message: `Must have an ${entry} entry point`
                         });
                     }
+                }
+            },
+            "Program > ExpressionStatement > AssignmentExpression"(node) {
+                if(node.left.type === "Identifier" &&
+                   node.operator === "=" &&
+                   node.right.type === "FunctionExpression" &&
+                   api.entrypoints.includes(node.left.name)) {
+                    context.markVariableAsUsed(node.left.name);
                 }
             }
         };

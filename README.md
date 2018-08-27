@@ -6,7 +6,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 
 ## Rules
 - `entry-point`
-  Checks that the script has the required `update` function.
+  Checks that the script has the required `update` function. Marks all entry points as used.
 - `no-unsupported-syntax`
   Checks for unsupported JS syntax features.
 - `no-terminator-in-init`
@@ -26,7 +26,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 ## Configs
 - `recommended`
   Adds all the global functions and variables of Bot Land so eslint doesn't complain
-  about them and adds the following rules:
+  about them, removes all the ECMA Script globals and adds the following rules:
 
   | Rule                    | Level   |
   |-------------------------|---------|

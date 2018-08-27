@@ -23,6 +23,22 @@ ruleTester.run('entry-point', rule, {
                 column: 1,
                 line: 1
             } ]
+        },
+        {
+            code: '(function() { update = function() {}; })()',
+            errors: [ {
+                message: "Must have an update entry point",
+                column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: 'update = "a"',
+            errors: [ {
+                message: "Must have an update entry point",
+                column: 1,
+                line: 1
+            } ]
         }
     ]
 });

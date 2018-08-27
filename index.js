@@ -5,6 +5,8 @@ module.exports = {
         //"no-unreachable-code": require("./rules/no-unreachable-code"), no code in a block after a terminator
         //"arg-types": require("./rules/arg-types"), rundimentary arugments check (count and types)
         //"use-guarded-terminator": require("./rules/use-guarded-terminator"), terminators must have an if around them
+        //"use-array-variables"
+        //"no-top-level-statements"
         "prefer-function": require("./rules/prefer-function"),
         "no-terminator-in-init": require("./rules/no-terminator-in-init"),
         "no-unsupported-syntax": require("./rules/no-unsupported-syntax"),

@@ -1,8 +1,21 @@
 "use strict";
 
 const api = require("../api.json"),
-
-    globals = {};
+    globals = {},
+    ecmaGlobals = [
+        'Math',
+        'Array',
+        'Object',
+        'Number',
+        'Boolean',
+        'Reflect',
+        'Symbol',
+        'String',
+        'Map',
+        'Set',
+        'WeakMap',
+        'WeakSet'
+    ];
 
 for(const terminator of api.terminators) {
     globals[terminator] = true;
@@ -15,6 +28,9 @@ for(const global of api.globals) {
 }
 for(const alias in api.aliases) {
     globals[alias] = true;
+}
+for(const ecmaGlobal of ecmaGlobals) {
+    globals[ecmaGlobal] = false;
 }
 
 module.exports = {
