@@ -18,9 +18,7 @@ for(const alias in api.aliases) {
 }
 
 module.exports = {
-    plugins: [
-        'botland'
-    ],
+    plugins: [ 'botland' ],
     rules: {
         "no-unsupported-syntax": "error",
         "entry-point": "error"

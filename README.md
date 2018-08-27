@@ -13,7 +13,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Adds all the global functions and variables Bot Land so eslint doesn't complain
   about them and adds the following rules:
 
-  Rule | Level
-  ------------
-  `entry-point` | error
-  `no-unsupported-syntax` | error
+  | Rule | Level |
+  ----------------
+  | `entry-point` | error |
+  | `no-unsupported-syntax` | error |

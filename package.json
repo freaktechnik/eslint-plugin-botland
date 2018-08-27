@@ -50,7 +50,7 @@
     "README.md",
     "LICENSE",
     "api.json",
-    "rules/*.js",
-    "configs/*.js"
+    "rules/*",
+    "configs/*"
   ]
 }

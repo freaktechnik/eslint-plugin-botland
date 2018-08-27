@@ -14,7 +14,7 @@ module.exports = {
                        statement.expression.left.type === "Identifier" &&
                        api.requiredEntry.includes(statement.expression.left.name) &&
                        statement.expression.right.type === "FunctionExpression") {
-                        entries.add(statement.expression.left.name)
+                        entries.add(statement.expression.left.name);
                         break;
                     }
                 }

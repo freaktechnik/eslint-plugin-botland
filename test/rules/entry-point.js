@@ -6,9 +6,7 @@ import pnoexz from '../_pnoexz';
 const ruleTester = new AvaRuleTester(test, {});
 
 ruleTester.run('entry-point', rule, {
-    valid: [
-        'update = function() {};'
-    ].concat(pnoexz.scripts),
+    valid: [ 'update = function() {};' ].concat(pnoexz.scripts),
     invalid: [
         {
             code: 'init = function() {};',

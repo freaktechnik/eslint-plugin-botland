@@ -10,9 +10,7 @@ const ruleTester = new AvaRuleTester(test, {
 });
 
 ruleTester.run('no-unsupported-syntax', rule, {
-    valid: [
-        'update = function() {};'
-    ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
+    valid: [ 'update = function() {};' ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {
             code: 'init = function*() {};',

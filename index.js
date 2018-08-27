@@ -10,6 +10,6 @@ module.exports = {
         "entry-point": require("./rules/entry-point")
     },
     configs: {
-        recommended: require("./configs/recommended"),
+        recommended: require("./configs/recommended")
     }
 };

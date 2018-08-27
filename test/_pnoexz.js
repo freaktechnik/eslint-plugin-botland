@@ -4,8 +4,7 @@
 // https://gist.github.com/Pnoexz/3886724a2441ccca68c29ab7290c90ab
 
 module.exports = {
-    bodies: [
-        `array1 = findEntities(ENEMY, BOT, false);
+    bodies: [ `array1 = findEntities(ENEMY, BOT, false);
 arrayLength = count(array1);
 for (i = 0; i < arrayLength; i++ ) {
     enemy = array1[i];
@@ -13,8 +12,7 @@ for (i = 0; i < arrayLength; i++ ) {
     enemyY = getY(enemy);
 
     // Do something
-}`
-    ],
+}` ],
     functions: [
         `teleportIfPossible = function(ownX, ownY) {
     if (canTeleport(ownX, ownY)) {
@@ -89,8 +87,7 @@ healOrPersueFriendlyBot = function() {
     }
 }`
     ],
-    scripts: [
-        `init = function() {
+    scripts: [ `init = function() {
     lastTurnHp = life;
 }
 
@@ -113,6 +110,5 @@ didTakeDamage = function() {
     lastTurnHp = life;
 
     return tookDamage;
-}`
-    ]
+}` ]
 };
