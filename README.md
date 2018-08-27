@@ -1,6 +1,6 @@
 # eslint-plugin-botland
 
-Lint your [bot land](https://bot.land) bot scripts using eslint.
+Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 
 ## Rules
 - `entry-point`
@@ -10,3 +10,4 @@ Lint your [bot land](https://bot.land) bot scripts using eslint.
 
 ## Configs
 - `recommended`
+  Adds all the global functions and variables botland
