@@ -63,9 +63,11 @@
         "ceil",
         "round",
         "min",
-        "max"
+        "max",
+        "debugLog"
     ],
     "globals": [
+        "life",
         "x",
         "y",
         "arenaWidth",
