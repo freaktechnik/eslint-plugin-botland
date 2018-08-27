@@ -36,11 +36,12 @@ for(const ecmaGlobal of ecmaGlobals) {
 module.exports = {
     plugins: [ 'botland' ],
     rules: {
-        "no-unsupported-syntax": "error",
-        "entry-point": "error",
-        "only-global-function-declaration": "error",
-        "no-terminator-in-init": "warn",
-        "prefer-function": "warn"
+        "botland/no-unsupported-syntax": "error",
+        "botland/entry-point": "error",
+        "botland/only-global-function-declaration": "error",
+        "botland/use-array-variables": "error",
+        "botland/no-terminator-in-init": "warn",
+        "botland/prefer-function": "warn"
     },
     globals
 };

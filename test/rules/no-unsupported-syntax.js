@@ -64,6 +64,14 @@ ruleTester.run('no-unsupported-syntax', rule, {
                 column: 2,
                 line: 1
             } ]
+        },
+        {
+            code: 'something.method()',
+            errors: [ {
+                message: "MemberExpression is not supported",
+                column: 1,
+                line: 1
+            } ]
         }
     ]
 });

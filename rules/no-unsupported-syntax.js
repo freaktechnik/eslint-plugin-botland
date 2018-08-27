@@ -45,7 +45,14 @@ module.exports = {
                     reject(node);
                 }
             },
-            "ObjectExpression": reject
+            "ObjectExpression": reject,
+            "ArrayPattern": reject,
+            "ObjectPattern": reject,
+            "MemberExpression"(node) {
+                if(!node.computed) {
+                    reject(node);
+                }
+            }
         };
     },
     meta: {
