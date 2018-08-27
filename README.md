@@ -14,6 +14,6 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   about them and adds the following rules:
 
   | Rule | Level |
-  ----------------
+  |------|-------|
   | `entry-point` | error |
   | `no-unsupported-syntax` | error |
