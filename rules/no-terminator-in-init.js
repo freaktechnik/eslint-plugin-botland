@@ -44,15 +44,15 @@ const walkBodies = (node, cbk) => {
 module.exports = {
     create(context) {
         return {
-            'Program ExpressionStatement > AssignmentExpression[operator=\"=\"]'(node) {
+            'Program ExpressionStatement > AssignmentExpression[operator="="]'(node) {
                 if(node.left.type === "Identifier" &&
                    node.left.name === "init" &&
                    node.right.type === "FunctionExpression") {
-                    walkBodies(node.right, (node) => {
-                        if(node.callee.type === "Identifier" &&
-                           api.terminators.includes(node.callee.name)) {
+                    walkBodies(node.right, (hit) => {
+                        if(hit.callee.type === "Identifier" &&
+                           api.terminators.includes(hit.callee.name)) {
                             context.report({
-                                node,
+                                node: hit,
                                 message: "Terminators in the init entry point have no effect"
                             });
                         }
