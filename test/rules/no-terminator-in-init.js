@@ -12,14 +12,12 @@ ruleTester.run('no-terminator-in-init', rule, {
             help = 'a';
         }`
     ].concat(pnoexz.scripts),
-    invalid: [
-        {
-            code: 'init = function() { zap(); };',
-            errors: [ {
-                message: "Terminators in the init entry point have no effect",
-                column: 21,
-                line: 1
-            } ]
-        }
-    ]
+    invalid: [ {
+        code: 'init = function() { zap(); };',
+        errors: [ {
+            message: "Terminators in the init entry point have no effect",
+            column: 21,
+            line: 1
+        } ]
+    } ]
 });
