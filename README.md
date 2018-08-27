@@ -5,6 +5,8 @@
 Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 
 ## Rules
+- `code-length`
+  Bot Land scripts can at most have 15000 characters
 - `entry-point`
   Check that the script has the required `update` function. Marks all entry points as used.
 - `no-terminator-in-init`
@@ -25,6 +27,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   `use-guarded-terminator` rule, since code after terminators can be reached.
 - `arg-types` Check argument count and types for methods. Should at the very least
   be able to check number of args, type of literals and direction literals.
+- `no-unassigned` Check for variables to be set somewhere at some point if they aren't global.
+- `array-size` Arrays can only have 100 items.
 
 ## Configs
 - `recommended`
@@ -33,6 +37,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 
   | Rule                               | Level   |
   |------------------------------------|---------|
+  | `code-length`                      | error   |
   | `entry-point`                      | error   |
   | `no-unsupported-syntax`            | error   |
   | `only-global-function-declaration` | error   |
