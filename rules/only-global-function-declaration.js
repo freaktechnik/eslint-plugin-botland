@@ -3,7 +3,7 @@
 module.exports = {
     create(context) {
         return {
-            "Program > *"(node) {
+            'Program > *:not([type="ExpressionStatement"][expression.type="AssignmentExpression"][expression.operator="="][expression.left.type="Identifier"][expression.right.type="FunctionExpression"])'(node) {
                 let problematicNode;
                 if(node.type !== "ExpressionStatement") {
                     problematicNode = node;

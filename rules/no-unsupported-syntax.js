@@ -1,6 +1,7 @@
 "use strict";
 
 const api = require("../api.json"),
+    EMPTY = 0,
     rejectNode = (context) => (node) => {
         context.report({
             node,
@@ -45,7 +46,7 @@ module.exports = {
                     reject(node);
                 }
                 else if(node.parent.type === "AssignmentExpression" &&
-                        node.elements.length > 0) {
+                        node.elements.length > EMPTY) {
                     context.report({
                         node,
                         message: "Can not initialize array when declaring"

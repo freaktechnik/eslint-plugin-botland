@@ -77,6 +77,7 @@ module.exports = {
         "botland/only-global-function-declaration": "error",
         "botland/use-array-variables": "error",
         "botland/code-length": "error",
+        "botland/no-big-array": "error",
         "botland/no-terminator-in-init": "warn",
         "botland/prefer-function": "warn"
     },

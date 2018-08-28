@@ -27,11 +27,8 @@ module.exports = {
                     }
                 }
             },
-            "Program > ExpressionStatement > AssignmentExpression"(node) {
-                if(node.left.type === "Identifier" &&
-                   node.operator === "=" &&
-                   node.right.type === "FunctionExpression" &&
-                   api.entrypoints.includes(node.left.name)) {
+            "Program > ExpressionStatement > AssignmentExpression[operator=\"=\"][right.type=\"Identifier\"][left.type=\"FunctionExpression\"]"(node) {
+                if(api.entrypoints.includes(node.left.name)) {
                     context.markVariableAsUsed(node.left.name);
                 }
             }

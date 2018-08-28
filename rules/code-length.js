@@ -18,7 +18,7 @@ module.exports = {
     },
     meta: {
         docs: {
-            description: "Ensures the required turn entry point exists and is a function. Also marks entry points as used variables.",
+            description: "Checks the length of the script to be storeable by Bot Land",
             recommended: true
         },
         schema: []

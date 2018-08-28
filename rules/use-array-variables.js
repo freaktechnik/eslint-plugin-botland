@@ -5,11 +5,8 @@ const api = require("../api.json");
 module.exports = {
     create(context) {
         return {
-            "AssignmentExpression > Identifier"(node) {
+            'AssignmentExpression:not(:matches([right.type="Identifier"],[right.type="ArrayExpression"],[right.type="CallExpression"])) > Identifier'(node) {
                 if(api.arrayVars.includes(node.name) &&
-                   node.parent.right.type !== 'Identifier' &&
-                   node.parent.right.type !== 'ArrayExpression' &&
-                   node.parent.right.type !== 'CallExpression' &&
                    (node.parent.right.type !== 'Literal' ||
                     typeof node.parent.right.value !== 'string')) {
                     context.report({

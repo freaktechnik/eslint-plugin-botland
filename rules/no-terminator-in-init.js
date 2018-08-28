@@ -44,20 +44,16 @@ const api = require("../api.json"),
 module.exports = {
     create(context) {
         return {
-            'Program ExpressionStatement > AssignmentExpression[operator="="]'(node) {
-                if(node.left.type === "Identifier" &&
-                   node.left.name === "init" &&
-                   node.right.type === "FunctionExpression") {
-                    walkBodies(node.right, (hit) => {
-                        if(hit.callee.type === "Identifier" &&
-                           api.terminators.includes(hit.callee.name)) {
-                            context.report({
-                                node: hit,
-                                message: "Terminators in the init entry point have no effect"
-                            });
-                        }
-                    });
-                }
+            'Program ExpressionStatement > AssignmentExpression[operator="="][left.type="Identifier"][left.name="init"][right.type="FunctionExpression"]'(node) {
+                walkBodies(node.right, (hit) => {
+                    if(hit.callee.type === "Identifier" &&
+                       api.terminators.includes(hit.callee.name)) {
+                        context.report({
+                            node: hit,
+                            message: "Terminators in the init entry point have no effect"
+                        });
+                    }
+                });
             }
         };
     },
