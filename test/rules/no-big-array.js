@@ -8,7 +8,8 @@ const ruleTester = new AvaRuleTester(test, {});
 ruleTester.run('no-big-array', rule, {
     valid: [
         'array1[99] = "a";',
-        'temp = array1[101]'
+        'temp = array1[101]',
+        'array1[99] = array2[101]'
     ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [ {
         code: 'array1[101] = "a"',
