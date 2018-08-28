@@ -7,7 +7,7 @@ module.exports = {
                 if(node.parent == node.parent.parent.left) {
                     context.report({
                         node,
-                        message: "Can only assign items to indexes between 0 and 99"
+                        messageId: "arraySize"
                     });
                 }
             }
@@ -19,6 +19,9 @@ module.exports = {
             description: "Custom arrays can at most have 100 items",
             recommended: true
         },
-        schema: []
+        schema: [],
+        messages: {
+            arraySize: "Can only assign items to indexes between 0 and 99"
+        }
     }
 };

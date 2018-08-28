@@ -31,7 +31,11 @@ module.exports = {
                 if(aliases.includes(node.callee.name)) {
                     context.report({
                         node,
-                        message: `Prefer ${preferred[node.callee.name]} over ${node.callee.name}`
+                        message: 'Prefer {{ preferred }} over {{ used }}',
+                        data: {
+                            preferred: preferred[node.callee.name],
+                            used: node.callee.name
+                        }
                     });
                 }
             }

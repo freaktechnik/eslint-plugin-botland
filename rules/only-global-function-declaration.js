@@ -21,14 +21,14 @@ module.exports = {
                 if(problematicNode) {
                     context.report({
                         node: problematicNode,
-                        message: "Top level statements must be function declarations"
+                        messageId: "topLevelFunction"
                     });
                 }
             },
             "FunctionExpression FunctionExpression"(node) {
                 context.report({
                     node,
-                    message: "Function declarations may not be nested"
+                    messageId: "nestedFunction"
                 });
             }
         };
@@ -38,6 +38,10 @@ module.exports = {
             description: "Only function declarations are allowed on the top level.",
             recommended: true
         },
-        schema: []
+        schema: [],
+        messages: {
+            topLevelFunction: "Top level statements must be function declarations",
+            nestedFunction: "Function declarations may not be nested"
+        }
     }
 };

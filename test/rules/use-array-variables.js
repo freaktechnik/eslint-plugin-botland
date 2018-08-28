@@ -18,7 +18,7 @@ ruleTester.run('use-array-variables', rule, {
         {
             code: 'someVar[1]',
             errors: [ {
-                message: "Arrays can only be read and written to and from array variables",
+                messageId: "arrayWrite",
                 column: 1,
                 line: 1
             } ]
@@ -26,7 +26,7 @@ ruleTester.run('use-array-variables', rule, {
         {
             code: 'someVar[1] = 1',
             errors: [ {
-                message: "Arrays can only be read and written to and from array variables",
+                messageId: "arrayWrite",
                 column: 1,
                 line: 1
             } ]
@@ -34,7 +34,7 @@ ruleTester.run('use-array-variables', rule, {
         {
             code: 'array2["a"]',
             errors: [ {
-                message: "Property accessor must be a number literal or variable",
+                messageId: "arrayAccessorNumber",
                 column: 8,
                 line: 1
             } ]
@@ -42,7 +42,7 @@ ruleTester.run('use-array-variables', rule, {
         {
             code: 'array1 = 1;',
             errors: [ {
-                message: "Only assign arrays or strings to array variables",
+                messageOd: "assignType",
                 column: 10,
                 line: 1
             } ]

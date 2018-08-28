@@ -22,7 +22,10 @@ module.exports = {
                     if(!entries.has(entry)) {
                         context.report({
                             node,
-                            message: `Must have an ${entry} entry point`
+                            message: 'Must have an {{ entry }} entry point',
+                            data: {
+                                entry
+                            }
                         });
                     }
                 }

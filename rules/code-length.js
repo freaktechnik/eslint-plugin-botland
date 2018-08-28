@@ -10,7 +10,11 @@ module.exports = {
                 if(source.length > MAX_LENGTH) {
                     context.report({
                         node,
-                        message: `Script has ${source.length} characters out of ${MAX_LENGTH} allowed characters`
+                        message: 'Script has {{ sourceLength }} characters out of {{ maxLength }} allowed characters',
+                        data: {
+                            sourceLength: source.length,
+                            maxLength: MAX_LENGTH
+                        }
                     });
                 }
             }

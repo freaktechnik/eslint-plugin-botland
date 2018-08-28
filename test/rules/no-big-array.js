@@ -14,7 +14,7 @@ ruleTester.run('no-big-array', rule, {
     invalid: [ {
         code: 'array1[101] = "a"',
         errors: [ {
-            message: "Can only assign items to indexes between 0 and 99",
+            messageId: "arraySize",
             column: 8,
             line: 1
         } ]

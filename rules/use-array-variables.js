@@ -11,7 +11,7 @@ module.exports = {
                     typeof node.parent.right.value !== 'string')) {
                     context.report({
                         node: node.parent.right,
-                        message: "Only assign arrays or strings to array variables"
+                        messageId: "assignType"
                     });
                 }
             },
@@ -19,7 +19,7 @@ module.exports = {
                 if(!api.arrayVars.includes(node.object.name)) {
                     context.report({
                         node: node.object,
-                        message: "Arrays can only be read and written to and from array variables"
+                        messageId: "arrayWrite"
                     });
                 }
                 else if((node.property.type !== "Literal" ||
@@ -28,7 +28,7 @@ module.exports = {
                     //TODO try to get type of identifier
                     context.report({
                         node: node.property,
-                        message: "Property accessor must be a number literal or variable"
+                        messageId: "arrayAccessorNumber"
                     });
                 }
             }
@@ -39,6 +39,11 @@ module.exports = {
             description: "Only the two built in array registers can mutate and read arrays",
             recommended: true
         },
-        schema: []
+        schema: [],
+        messages: {
+            assignType: "Only assign arrays or strings to array variables",
+            arrayWrite: "Arrays can only be read and written to and from array variables",
+            arrayAccessorNumber: "Property accessor must be a number literal or variable"
+        }
     }
 };
