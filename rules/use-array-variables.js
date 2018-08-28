@@ -9,10 +9,12 @@ module.exports = {
                 if(api.arrayVars.includes(node.name) &&
                    node.parent.right.type !== 'Identifier' &&
                    node.parent.right.type !== 'ArrayExpression' &&
-                   node.parent.right.type !== 'CallExpression') {
+                   node.parent.right.type !== 'CallExpression' &&
+                   (node.parent.right.type !== 'Literal' ||
+                    typeof node.parent.right.value !== 'string')) {
                     context.report({
-                        node,
-                        message: "Only assign arrays to array variables"
+                        node: node.parent.right,
+                        message: "Only assign arrays or strings to array variables"
                     });
                 }
             },

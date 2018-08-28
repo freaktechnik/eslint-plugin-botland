@@ -11,7 +11,8 @@ ruleTester.run('use-array-variables', rule, {
         'array1[test]',
         'array2[1] = "hi"',
         'array2[0] = test',
-        'array1 = []'
+        'array1 = []',
+        'array1 = "hi"'
     ].concat(pnoexz.scripts, pnoexz.bodies, pnoexz.functions),
     invalid: [
         {
@@ -39,10 +40,10 @@ ruleTester.run('use-array-variables', rule, {
             } ]
         },
         {
-            code: 'array1 = "hi"',
+            code: 'array1 = 1;',
             errors: [ {
-                message: "Only assign arrays to array variables",
-                column: 1,
+                message: "Only assign arrays or strings to array variables",
+                column: 10,
                 line: 1
             } ]
         }

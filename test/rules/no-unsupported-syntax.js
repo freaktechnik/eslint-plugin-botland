@@ -14,7 +14,9 @@ ruleTester.run('no-unsupported-syntax', rule, {
         'update = function() {};',
         `update = function() {
             array1 = [];
-        }`
+        }`,
+        `string = array1[0];
+func(string);`
     ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {
@@ -70,6 +72,86 @@ ruleTester.run('no-unsupported-syntax', rule, {
             errors: [ {
                 message: "MemberExpression is not supported",
                 column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: 'func(array1[0])',
+            errors: [ {
+                message: "MemberExpression is not supported",
+                column: 6,
+                line: 1
+            } ]
+        },
+        {
+            code: 'array1 = [ 0 ]',
+            errors: [ {
+                message: "Can not initialize array when declaring",
+                columnd: 10,
+                line: 1
+            } ]
+        },
+        {
+            code: 'for(a of array1) {}',
+            errors: [ {
+                message: "ForOfStatement is not supported",
+                column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: 'for(a in array1) {}',
+            errors: [ {
+                message: "ForInStatement is not supported",
+                column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: 'while(true) {}',
+            errors: [ {
+                message: "WhileStatement is not supported",
+                column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: 'with(true) {}',
+            errors: [ {
+                message: "WithStatement is not supported",
+                column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: 'Label: func()',
+            errors: [ {
+                message: "LabeledStatement is not supported",
+                column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: `switch(test) {}`,
+            errors: [ {
+                message: "SwitchStatement is not supported",
+                column: 1,
+                line: 1
+            } ]
+        },
+        {
+            code: 'for(i = 0; i < 10; ++i) { break; }',
+            errors: [ {
+                message: "BreakStatement is not supported",
+                column: 27,
+                line: 1
+            } ]
+        },
+        {
+            code: 'for(i = 0; i < 10; ++i) { continue; }',
+            errors: [ {
+                message: "ContinueStatement is not supported",
+                column: 27,
                 line: 1
             } ]
         }

@@ -19,3 +19,4 @@ jobs:
       script: npm run lint
     - stage: test
       name: "Unit tests"
+      after_success: npm run coverage

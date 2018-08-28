@@ -44,6 +44,13 @@ module.exports = {
                     !api.arrayVars.includes(node.parent.left.name))) {
                     reject(node);
                 }
+                else if(node.parent.type === "AssignmentExpression" &&
+                        node.elements.length > 0) {
+                    context.report({
+                        node,
+                        message: "Can not initialize array when declaring"
+                    });
+                }
             },
             "ObjectExpression": reject,
             "ArrayPattern": reject,
@@ -52,7 +59,21 @@ module.exports = {
                 if(!node.computed) {
                     reject(node);
                 }
-            }
+            },
+            "CallExpression > MemberExpression"(node) {
+                // non-computed expressions are already covered
+                if(node.computed) {
+                    reject(node);
+                }
+            },
+            "ForOfStatement": reject,
+            "ForInStatement": reject,
+            "WhileStatement": reject,
+            "WithStatement": reject,
+            "SwitchStatement": reject,
+            "LabeledStatement": reject,
+            "ContinueStatement": reject,
+            "BreakStatement": reject
         };
     },
     meta: {
