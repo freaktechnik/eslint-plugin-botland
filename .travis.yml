@@ -2,16 +2,11 @@ sudo: false
 language: node_js
 node_js: stable
 stages:
+  - greenkeeper
   - lint
   - test
-  - greenkeeper
 jobs:
   include:
-    - stage: lint
-      name: "Lint JS"
-      script: npm run lint
-    - stage: test
-      name: "Unit tests"
     - stage: greenkeeper
       if: branch =~ /^greenkeeper.*$/
       before_install: npm i -g greenkeeper-lockfile
@@ -19,3 +14,8 @@ jobs:
       script:
         - greenkeeper-lockfile-update
         - greenkeeper-lockfile-upload
+    - stage: lint
+      name: "Lint JS"
+      script: npm run lint
+    - stage: test
+      name: "Unit tests"

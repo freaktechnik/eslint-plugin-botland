@@ -29,6 +29,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   be able to check number of args, type of literals and direction literals.
 - `no-unassigned` Check for variables to be set somewhere at some point if they aren't global.
 - `array-size` Arrays can only have 100 items.
+- `string-length` `debugLog` strings can at most have 50 characters.
 
 ## Configs
 - `recommended`
