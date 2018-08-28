@@ -11,6 +11,7 @@ module.exports = {
                     });
                 }
             }
+            //TODO also look for loops with too big bounds (needs value resolution)
         };
     },
     meta: {
