@@ -100,6 +100,11 @@
         "percentChance"
     ],
     "globals": [
+        "sharedA",
+        "sharedB",
+        "sharedC",
+        "sharedD",
+        "sharedE",
         "life",
         "x",
         "y",
