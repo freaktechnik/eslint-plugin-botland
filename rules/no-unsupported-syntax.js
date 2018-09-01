@@ -75,7 +75,7 @@ module.exports = {
             "LabeledStatement": reject,
             "ContinueStatement": reject,
             "BreakStatement": reject,
-            "BlockStatement > ExpressionStatement > UnaryExpression": reject,
+            'BlockStatement > ExpressionStatement > UnaryExpression:not([operator="delete"])': reject,
             "EmptyStatement": reject,
             'UnaryExpression[operator="delete"]': reject
         };
