@@ -76,7 +76,8 @@ module.exports = {
             "ContinueStatement": reject,
             "BreakStatement": reject,
             "BlockStatement > ExpressionStatement > UnaryExpression": reject,
-            "EmptyStatement": reject
+            "EmptyStatement": reject,
+            'UnaryExpression[operator="delete"]': reject
         };
     },
     meta: {
