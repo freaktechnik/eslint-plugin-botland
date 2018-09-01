@@ -1,37 +1,25 @@
 "use strict";
 
-const api = require("../api.json");
+const scopeHasVariable = (scope, varname) => scope.set.has(varname) || (scope.upper && scopeHasVariable(scope.upper, varname)),
 
-const scopeHasVariable = (scope, varname) => {
-    if(!scope) {
-        console.log(varname);
-        return false;
-    }
-    return scope.set.has(varname) || (scope.upper && scopeHasVariable(scope.upper, varname));
-};
-
-const walkFunction = (name, functions, setVars, ctx) => {
-    const args = new Set();
-    for(const command of functions[name].commands) {
-        switch(command.type) {
-            case "call": {
+    walkFunction = (name, functions, setVars, ctx) => {
+        const args = new Set();
+        for(const command of functions[name].commands) {
+            switch(command.type) {
+            case "call":
                 if(functions.hasOwnProperty(command.name)) {
                     walkFunction(command.name, functions, setVars, ctx);
                 }
-                else {
-                    // Use scope to also account for globals.
-                    if(!scopeHasVariable(command.scope, command.name)) {
-                        ctx.report({
-                            node: command.node,
-                            message: "Function {{ funcName }} must be set in the top level scope before usage",
-                            data: {
-                                funcName: command.node.callee.name
-                            }
-                        });
-                    }
+                else if(!scopeHasVariable(command.scope, command.name)) {
+                    ctx.report({
+                        node: command.node,
+                        message: "Function {{ funcName }} must be set in the top level scope before usage",
+                        data: {
+                            funcName: command.node.callee.name
+                        }
+                    });
                 }
                 break;
-            }
             case "write":
                 if(command.arg && !setVars.has(command.name)) {
                     args.add(command.name);
@@ -41,7 +29,7 @@ const walkFunction = (name, functions, setVars, ctx) => {
                 }
                 setVars.add(command.name);
                 break;
-            case "read": {
+            case "read":
                 if(!setVars.has(command.name) && !scopeHasVariable(command.scope, command.name)) {
                     ctx.report({
                         message: "Variable {{ name }} is not set before usage",
@@ -52,13 +40,14 @@ const walkFunction = (name, functions, setVars, ctx) => {
                     });
                 }
                 break;
+            default:
+                //Nothing
             }
         }
-    }
-    for(const arg of args) {
-        setVars.delete(arg);
-    }
-};
+        for(const arg of args) {
+            setVars.delete(arg);
+        }
+    };
 
 module.exports = {
     create(context) {
@@ -101,10 +90,10 @@ module.exports = {
                     });
                 }
             },
-            "FunctionExpression:exit"(node) {
+            "FunctionExpression:exit"() {
                 currentFunc = undefined;
             },
-            'Program:exit'(node) {
+            'Program:exit'() {
                 const setVars = new Set();
                 if(functions.hasOwnProperty("init")) {
                     walkFunction("init", functions, setVars, context);
@@ -113,7 +102,7 @@ module.exports = {
                     walkFunction("update", functions, setVars, context);
                 }
             }
-        }
+        };
     },
     meta: {
         description: "Check if all variables are set before usage",
