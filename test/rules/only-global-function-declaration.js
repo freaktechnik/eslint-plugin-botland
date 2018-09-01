@@ -54,6 +54,14 @@ ruleTester.run('only-global-function-declaration', rule, {
                 column: 22,
                 line: 1
             } ]
+        },
+        {
+            code: "func = function() { func = 'b'; }",
+            errors: [ {
+                messageId: "overwriteFunction",
+                columnd: 22,
+                line: 1
+            } ]
         }
     ]
 });

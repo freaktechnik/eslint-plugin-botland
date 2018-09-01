@@ -30,6 +30,15 @@ module.exports = {
                     node,
                     messageId: "nestedFunction"
                 });
+            },
+            "FunctionExpression AssignmentExpression"(node) {
+                const scope = context.getScope();
+                if(scope.upper.references.find((r) => r.identifier.name === node.left.name)) {
+                    context.report({
+                        node,
+                        messageId: "overwriteFunction"
+                    });
+                }
             }
         };
     },
@@ -41,7 +50,8 @@ module.exports = {
         schema: [],
         messages: {
             topLevelFunction: "Top level statements must be function declarations",
-            nestedFunction: "Function declarations may not be nested"
+            nestedFunction: "Function declarations may not be nested",
+            overwriteFunction: "Can not assign value to variable that has already been assigned a function"
         }
     }
 };

@@ -16,7 +16,13 @@ ruleTester.run('no-unsupported-syntax', rule, {
             array1 = [];
         }`,
         `string = array1[0];
-func(string);`
+func(string);`,
+        'entity.x',
+        'entity.y',
+        'entity.life',
+        'something(entity.x + 0)',
+        'something(entity.y + 0)',
+        'something(entity.life + 0)'
     ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {
@@ -152,6 +158,30 @@ func(string);`
             errors: [ {
                 message: "ContinueStatement is not supported",
                 column: 27,
+                line: 1
+            } ]
+        },
+        {
+            code: 'func(entity.x)',
+            errors: [ {
+                message: "MemberExpression is not supported",
+                columnd: 7,
+                line: 1
+            } ]
+        },
+        {
+            code: 'func(entity.y)',
+            errors: [ {
+                message: "MemberExpression is not supported",
+                columnd: 7,
+                line: 1
+            } ]
+        },
+        {
+            code: 'func(entity.life)',
+            errors: [ {
+                message: "MemberExpression is not supported",
+                columnd: 7,
                 line: 1
             } ]
         }

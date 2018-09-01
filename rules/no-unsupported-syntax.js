@@ -57,13 +57,13 @@ module.exports = {
             "ArrayPattern": reject,
             "ObjectPattern": reject,
             "MemberExpression"(node) {
-                if(!node.computed) {
+                if(!node.computed && !api.allowedMembers.includes(node.property.name)) {
                     reject(node);
                 }
             },
             "CallExpression > MemberExpression"(node) {
                 // non-computed expressions are already covered
-                if(node.computed) {
+                if(node.computed || api.allowedMembers.includes(node.property.name)) {
                     reject(node);
                 }
             },

@@ -39,7 +39,13 @@ for (i = 0; i < arrayLength; i++ ) {
 
     return xDiff + yDiff;
 }`,
-        `isInSenseRange = function(targetX, targetY) {
+        `calculateDistance = function(sourceX, sourceY, targetX, targetY) {
+    xDiff = abs(sourceX - targetX);
+    yDiff = abs(sourceY - targetY);
+
+    return xDiff + yDiff;
+}
+isInSenseRange = function(targetX, targetY) {
     senseRange = 5;
     if (areSensorsActivated()) {
         senseRange = 7;
@@ -58,7 +64,10 @@ for (i = 0; i < arrayLength; i++ ) {
     }
     return false;
 }`,
-        `healSelfOrAlly = function() {
+        `init = function() {
+    healthToStopRepairing = 1;
+}
+healSelfOrAlly = function() {
     healSelf();
     healOrPersueFriendlyBot();
 }

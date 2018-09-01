@@ -61,7 +61,6 @@
         "willMissilesHit",
         "willLasersHit",
         "findClosestEnemyBot",
-        "findClosestResource",
         "canSense",
         "canSenseEntity",
         "exists",
@@ -151,5 +150,10 @@
         "emp": "EMP",
         "canEmp": "canEMP",
         "count": "size"
-    }
+    },
+    "allowedMembers": [
+        "x",
+        "y",
+        "life"
+    ]
 }
