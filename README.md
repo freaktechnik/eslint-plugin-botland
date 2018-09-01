@@ -11,8 +11,12 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Check that the script has the required `update` function. Marks all entry points as used.
 - `no-big-array`
   Items on arrays can only be assigned to indexes between 0 and 99.
+- `no-code-after-terminator`
+  Warn about code after terminators, since it may not always be reached.
 - `no-terminator-in-init`
   Terminators in the init entry point are a no-op.
+- `no-unreachable-code`
+  Check for code that is never reached via entry points.
 - `no-unset`
   Check for variables to be set when read and functions to be defined on the top level scope.
 - `no-unsupported-syntax`
@@ -25,10 +29,6 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   There are two special variables in Bot Land, `array1` and `array2` to access and mutate arrays. Arrays can not be interacted with in any other way.
 
 ### Future rules to add
-- `use-guarded-terminator` Terminators should be guarded in an if. Should be able
-   to auto fix some terminators by adding the basic canDoX check.
-- `no-unreachable-code` No code in blocks after terminators. Synergizes with the
-  `use-guarded-terminator` rule, since code after terminators can be reached.
 - `arg-types` Check argument count and types for methods. Should at the very least
   be able to check number of args, type of literals and direction literals.
 - `string-length` `debugLog` strings can at most have 50 characters.
@@ -50,3 +50,4 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   | `no-unset`                         | error   |
   | `no-terminator-in-init`            | warning |
   | `prefer-function`                  | warning |
+  | `no-code-after-terminator`         | warning |

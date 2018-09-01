@@ -80,7 +80,8 @@ module.exports = {
         "botland/no-big-array": "error",
         "botland/no-unset": "error",
         "botland/no-terminator-in-init": "warn",
-        "botland/prefer-function": "warn"
+        "botland/prefer-function": "warn",
+        "botland/no-code-after-terminator": "warn"
     },
     globals
 };
