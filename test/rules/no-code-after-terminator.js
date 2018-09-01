@@ -8,7 +8,7 @@ const ruleTester = new AvaRuleTester(test, {});
 ruleTester.run('no-code-after-terminator', rule, {
     valid: [
         'init = function() { figureItOut(); }',
-        'update = function () { test = "1"; figureItOut(); }',
+        'update = function () { test = "1"; figureItOut(); }'
     ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {

@@ -48,6 +48,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   | `use-array-variables`              | error   |
   | `no-big-array`                     | error   |
   | `no-unset`                         | error   |
+  | `no-unreachable-code`              | error   |
   | `no-terminator-in-init`            | warning |
   | `prefer-function`                  | warning |
   | `no-code-after-terminator`         | warning |

@@ -5,6 +5,7 @@ module.exports = {
         "no-code-after-terminator": require("./rules/no-code-after-terminator"),
         //"arg-types": require("./rules/arg-types"), rundimentary arugments check (count and types)
         //"use-guarded-terminator": require("./rules/use-guarded-terminator"), terminators must have an if around them
+        "no-unreachable-code": require("./rules/no-unreachable-code"),
         "no-unset": require("./rules/no-unset"),
         "no-big-array": require("./rules/no-big-array"),
         "code-length": require("./rules/code-length"),
