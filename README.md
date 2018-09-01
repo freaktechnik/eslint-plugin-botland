@@ -47,5 +47,6 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   | `only-global-function-declaration` | error   |
   | `use-array-variables`              | error   |
   | `no-big-array`                     | error   |
+  | `no-unset`                         | error   |
   | `no-terminator-in-init`            | warning |
   | `prefer-function`                  | warning |
