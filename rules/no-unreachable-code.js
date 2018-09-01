@@ -1,7 +1,7 @@
 "use strict";
 
-const scopeHasVariable = (scope, varname) => scope.set.has(varname) || (scope.upper && scopeHasVariable(scope.upper, varname)),
-
+const api = require("../api.json"),
+    scopeHasVariable = (scope, varname) => scope.set.has(varname) || (scope.upper && scopeHasVariable(scope.upper, varname)),
     walkFunction = (name, functions, calledFunctions) => {
         calledFunctions.add(name);
         for(const command of functions[name].commands) {
@@ -36,11 +36,10 @@ module.exports = {
             },
             'Program:exit'() {
                 const calledFunctions = new Set();
-                if(functions.hasOwnProperty("init")) {
-                    walkFunction("init", functions, calledFunctions);
-                }
-                if(functions.hasOwnProperty("update")) {
-                    walkFunction("update", functions, calledFunctions);
+                for(const entryPoint of api.entrypoints) {
+                    if(functions.hasOwnProperty(entryPoint)) {
+                        walkFunction(entryPoint, functions, calledFunctions);
+                    }
                 }
                 for(const func in functions) {
                     if(functions.hasOwnProperty(func) && !calledFunctions.has(func)) {
