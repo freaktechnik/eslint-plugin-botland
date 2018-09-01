@@ -14,7 +14,7 @@ ruleTester.run('no-unsupported-syntax', rule, {
         'update = function() {};',
         `update = function() {
             array1 = [];
-        }`,
+        };`,
         `string = array1[0];
 func(string);`,
         'entity.x',
@@ -22,7 +22,9 @@ func(string);`,
         'entity.life',
         'something(entity.x + 0)',
         'something(entity.y + 0)',
-        'something(entity.life + 0)'
+        'something(entity.life + 0)',
+        'if(typeof a === "string") {}',
+        'init = function() { return void a(); };'
     ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {
@@ -165,7 +167,7 @@ func(string);`,
             code: 'func(entity.x)',
             errors: [ {
                 message: "MemberExpression is not supported",
-                columnd: 7,
+                column: 6,
                 line: 1
             } ]
         },
@@ -173,7 +175,7 @@ func(string);`,
             code: 'func(entity.y)',
             errors: [ {
                 message: "MemberExpression is not supported",
-                columnd: 7,
+                column: 6,
                 line: 1
             } ]
         },
@@ -181,7 +183,39 @@ func(string);`,
             code: 'func(entity.life)',
             errors: [ {
                 message: "MemberExpression is not supported",
-                columnd: 7,
+                column: 6,
+                line: 1
+            } ]
+        },
+        {
+            code: 'a = function() { delete entity.x; };',
+            errors: [ {
+                message: "UnaryExpression is not supported",
+                column: 18,
+                line: 1
+            } ]
+        },
+        {
+            code: 'a = function() { void entity.x; };',
+            errors: [ {
+                message: "UnaryExpression is not supported",
+                column: 18,
+                line: 1
+            } ]
+        },
+        {
+            code: 'a = function() { typeof entity.x; };',
+            errors: [ {
+                message: "UnaryExpression is not supported",
+                column: 18,
+                line: 1
+            } ]
+        },
+        {
+            code: ';',
+            errors: [ {
+                message: "EmptyStatement is not supported",
+                column: 1,
                 line: 1
             } ]
         }

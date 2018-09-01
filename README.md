@@ -31,6 +31,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   be able to check number of args, type of literals and direction literals.
 - `no-unassigned`/`no-unset` Check for variables to be set somewhere at some point if they aren't global.
 - `string-length` `debugLog` strings can at most have 50 characters.
+- `no-nan-in-init` warns about `getX`/`getY` resp. `entity.x`/`entity.y` being `NaN` inside the `init` code path.
 
 ## Configs
 - `recommended`

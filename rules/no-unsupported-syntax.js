@@ -74,7 +74,9 @@ module.exports = {
             "SwitchStatement": reject,
             "LabeledStatement": reject,
             "ContinueStatement": reject,
-            "BreakStatement": reject
+            "BreakStatement": reject,
+            "BlockStatement > ExpressionStatement > UnaryExpression": reject,
+            "EmptyStatement": reject
         };
     },
     meta: {
