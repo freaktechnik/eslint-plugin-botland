@@ -13,6 +13,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Items on arrays can only be assigned to indexes between 0 and 99.
 - `no-terminator-in-init`
   Terminators in the init entry point are a no-op.
+- `no-unset`
+  Check for variables to be set when read and functions to be defined on the top level scope.
 - `no-unsupported-syntax`
   Check for unsupported JS syntax features.
 - `only-global-function-declaration`
@@ -29,7 +31,6 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   `use-guarded-terminator` rule, since code after terminators can be reached.
 - `arg-types` Check argument count and types for methods. Should at the very least
   be able to check number of args, type of literals and direction literals.
-- `no-unassigned`/`no-unset` Check for variables to be set somewhere at some point if they aren't global.
 - `string-length` `debugLog` strings can at most have 50 characters.
 - `no-nan-in-init` warns about `getX`/`getY` resp. `entity.x`/`entity.y` being `NaN` inside the `init` code path.
 

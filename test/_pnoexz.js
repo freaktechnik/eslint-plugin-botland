@@ -100,7 +100,7 @@ healOrPersueFriendlyBot = function() {
     lastTurnHp = life;
 }
 
-update = function () {
+update = function() {
     tookDamage = didTakeDamage();
 
     if (tookDamage) {
