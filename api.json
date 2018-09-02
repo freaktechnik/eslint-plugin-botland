@@ -25,8 +25,6 @@
         "move",
         "moveTo",
         "teleport",
-        "pursue",
-        "pursueBot",
         "fireLasers",
         "fireMissiles",
         "fireArtillery",
@@ -61,7 +59,6 @@
         "willMissilesHit",
         "willLasersHit",
         "findClosestEnemyBot",
-        "canSense",
         "canSenseEntity",
         "exists",
         "reduceEntities",
@@ -70,7 +67,7 @@
         "findEntities",
         "findEntitiesInRange",
         "filterEntities",
-        "precentChance",
+        "percentChance",
         "randInt",
         "clampNumber",
         "size",
@@ -91,12 +88,10 @@
         "isAdjacent",
         "willArtilleryHit",
         "willMeleeHit",
-        "willLasersHit",
         "canCharge",
         "isOnFire",
         "isShielded",
-        "canShield",
-        "percentChance"
+        "canShield"
     ],
     "globals": [
         "sharedA",
@@ -155,5 +150,277 @@
         "x",
         "y",
         "life"
-    ]
+    ],
+    "args": {
+        "move": [
+            [ "directions" ],
+            []
+        ],
+        "moveTo": [
+            [
+                "x",
+                "y"
+            ],
+            [
+                "entity"
+            ]
+        ],
+        "teleport": [
+            [
+                "x",
+                "y"
+            ],
+            [
+                "entity"
+            ]
+        ],
+        "fireLasers": [
+            [
+                "directions"
+            ],
+            [
+                "entity"
+            ],
+            []
+        ],
+        "fireMissiles": [
+            [
+                "entity"
+            ],
+            []
+        ],
+        "fireArtillery": [
+            [
+                "entity"
+            ],
+            []
+        ],
+        "melee": [
+            [
+                "directions"
+            ],
+            [
+                "entity"
+            ],
+            []
+        ],
+        "EMP": [
+            [
+                "empTargets"
+            ]
+        ],
+        "getX": [
+            [
+                "entity"
+            ]
+        ],
+        "getY": [
+            [
+                "entity"
+            ]
+        ],
+        "canMove": [
+            [
+                "directions"
+            ],
+            []
+        ],
+        "canMoveTo": [
+            [
+                "x",
+                "y"
+            ],
+            [
+                "entity"
+            ]
+        ],
+        "getDistanceTo": [
+            [
+                "x",
+                "y"
+            ],
+            [
+                "entity"
+            ]
+        ],
+        "getEntityAt": [
+            [
+                "x",
+                "y"
+            ]
+        ],
+        "isEnemyMineAt": [
+            [
+                "x",
+                "y"
+            ]
+        ],
+        "willMissilesHit": [
+            [
+                "entity"
+            ],
+            []
+        ],
+        "willLasersHit": [
+            [
+                "directions"
+            ],
+            [
+                "entity"
+            ],
+            []
+        ],
+        "canSenseEntity": [
+            [
+                "entity"
+            ]
+        ],
+        "exists": [
+            [
+                "any"
+            ]
+        ],
+        "reduceEntities": [
+            [
+                "entity[]",
+                "REDUCE_BY_MISSING_LIFE"
+            ]
+        ],
+        "getLife": [
+            [
+                "entity"
+            ]
+        ],
+        "findEntities": [
+            [
+                "faction",
+                "entityType",
+                "boolean"
+            ]
+        ],
+        "findEntitiesInRange": [
+            [
+                "faction",
+                "entityType",
+                "boolean",
+                "number"
+            ]
+        ],
+        "filterEntities": [
+            [
+                "entity[]",
+                "filter",
+                "sortdir"
+            ],
+            [
+                "entity[]",
+                "filter[]",
+                "sortdir[]"
+            ]
+        ],
+        "percentChance": [
+            [
+                "number"
+            ]
+        ],
+        "randInt": [
+            [
+                "number",
+                "number"
+            ]
+        ],
+        "clampNumber": [
+            [
+                "number",
+                "number",
+                "number"
+            ]
+        ],
+        "size": [
+            [
+                "any[]"
+            ],
+            [
+                "string"
+            ]
+        ],
+        "abs": [
+            [
+                "number"
+            ]
+        ],
+        "floor": [
+            [
+                "number"
+            ]
+        ],
+        "ceil": [
+            [
+                "number"
+            ]
+        ],
+        "round": [
+            [
+                "number"
+            ]
+        ],
+        "min": [
+            [
+                "number..."
+            ]
+        ],
+        "max": [
+            [
+                "number..."
+            ]
+        ],
+        "debugLog": [
+            [
+                "any..."
+            ]
+        ],
+        "willRepair": [
+            [
+                "entity"
+            ],
+            []
+        ],
+        "setAttackPriority": [
+            [
+                "attackPriority"
+            ]
+        ],
+        "isAdjacent": [
+            [
+                "entity"
+            ]
+        ],
+        "willArtilleryHit": [
+            [
+                "entity"
+            ],
+            []
+        ],
+        "willMeleeHit": [
+            [
+                "entity"
+            ],
+            [
+                "directions"
+            ],
+            []
+        ],
+        "isShielded": [
+            [
+                "entity"
+            ],
+            []
+        ],
+        "canShield": [
+            [
+                "entity"
+            ],
+            []
+        ]
+    }
 }
