@@ -145,8 +145,8 @@
         ]
     },
     "entrypoints": [
-        "update",
-        "init"
+        "init",
+        "update"
     ],
     "requiredEntry": [
         "update"
