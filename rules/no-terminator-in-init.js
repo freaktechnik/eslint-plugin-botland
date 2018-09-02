@@ -4,8 +4,8 @@ const api = require("../api.json");
 
 module.exports = {
     create(context) {
-        const calledFuncs = new Set();
-        const calledTerminators = {};
+        const calledFuncs = new Set(),
+            calledTerminators = {};
         let currentFunc;
         return {
             'Program ExpressionStatement > AssignmentExpression[operator="="][left.type="Identifier"][left.name="init"][right.type="FunctionExpression"] CallExpression'(node) {
@@ -27,7 +27,6 @@ module.exports = {
                 currentFunc = undefined;
             },
             'CallExpression'(node) {
-                console.log(currentFunc);
                 if(currentFunc && api.terminators.includes(node.callee.name)) {
                     if(!calledTerminators.hasOwnProperty(currentFunc)) {
                         calledTerminators[currentFunc] = [];

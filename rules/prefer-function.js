@@ -27,7 +27,6 @@ module.exports = {
         const aliases = Object.keys(preferred);
         return {
             "CallExpression"(node) {
-                //TODO honor prefer mappings
                 if(aliases.includes(node.callee.name)) {
                     context.report({
                         node,
