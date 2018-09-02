@@ -4,6 +4,9 @@ const api = require("../api.json");
 
 module.exports = {
     create(context) {
+        const calledFuncs = new Set();
+        const calledTerminators = {};
+        let currentFunc;
         return {
             'Program ExpressionStatement > AssignmentExpression[operator="="][left.type="Identifier"][left.name="init"][right.type="FunctionExpression"] CallExpression'(node) {
                 if(node.callee.type === "Identifier" &&
@@ -13,7 +16,36 @@ module.exports = {
                         message: "Terminators in the init entry point have no effect"
                     });
                 }
-                //TODO else check out body of function that is called for terminators
+                else if(!api.functions.includes(node.callee.name)) {
+                    calledFuncs.add(node.callee.name);
+                }
+            },
+            'FunctionExpression[parent.left.name!="init"]'(node) {
+                currentFunc = node.parent.left.name;
+            },
+            'FunctionExpression:exit'() {
+                currentFunc = undefined;
+            },
+            'CallExpression'(node) {
+                console.log(currentFunc);
+                if(currentFunc && api.terminators.includes(node.callee.name)) {
+                    if(!calledTerminators.hasOwnProperty(currentFunc)) {
+                        calledTerminators[currentFunc] = [];
+                    }
+                    calledTerminators[currentFunc].push(node);
+                }
+            },
+            'Program:exit'() {
+                for(const func of calledFuncs) {
+                    if(calledTerminators.hasOwnProperty(func)) {
+                        for(const node of calledTerminators[func]) {
+                            context.report({
+                                node,
+                                message: "Terminators within the init entry point code path have no effect"
+                            });
+                        }
+                    }
+                }
             }
         };
     },
