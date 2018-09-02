@@ -1,7 +1,8 @@
 "use strict";
 
 const api = require("../api.json"),
-    getValue = require("../get-value");
+    getValue = require("../get-value"),
+    DEFAULT_INDEX = 0;
 
 module.exports = {
     create(context) {
@@ -23,7 +24,7 @@ module.exports = {
                         messageId: "arrayWrite"
                     });
                 }
-                else if(typeof getValue(node.property, context.getScope(), 0) !== "number") {
+                else if(typeof getValue(node.property, context.getScope(), DEFAULT_INDEX) !== "number") {
                     context.report({
                         node: node.property,
                         messageId: "arrayAccessorNumber"
