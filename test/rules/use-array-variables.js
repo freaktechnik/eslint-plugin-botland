@@ -42,6 +42,14 @@ array1[i] = 'test';`
             } ]
         },
         {
+            code: 'i = "a"; array2[i] = 1;',
+            errors: [ {
+                messageId: "arrayAccessorNumber",
+                column: 17,
+                line: 1
+            } ]
+        },
+        {
             code: 'array1 = 1;',
             errors: [ {
                 messageOd: "assignType",
