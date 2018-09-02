@@ -1,26 +1,28 @@
 {
-    "directions": [
-        "up",
-        "down",
-        "forward",
-        "backward",
-        "left",
-        "right"
-    ],
-    "empTargets": [
-        "LASERS",
-        "MISSILES",
-        "MELEE",
-        "ARTILLERY",
-        "ZAPPER",
-        "CLOAKING",
-        "SHIELD",
-        "REPAIR",
-        "REFLECT",
-        "TELEPORT",
-        "LANDMINES",
-        "EMP"
-    ],
+    "enums": {
+        "directions": [
+            "up",
+            "down",
+            "forward",
+            "backward",
+            "left",
+            "right"
+        ],
+        "empTargets": [
+            "LASERS",
+            "MISSILES",
+            "MELEE",
+            "ARTILLERY",
+            "ZAPPER",
+            "CLOAKING",
+            "SHIELD",
+            "REPAIR",
+            "REFLECT",
+            "TELEPORT",
+            "LANDMINES",
+            "EMP"
+        ]
+    },
     "terminators": [
         "move",
         "moveTo",
@@ -92,46 +94,62 @@
         "isShielded",
         "canShield"
     ],
-    "globals": [
-        "sharedA",
-        "sharedB",
-        "sharedC",
-        "sharedD",
-        "sharedE",
-        "life",
-        "x",
-        "y",
-        "arenaWidth",
-        "arenaHeight",
-        "isAttacker",
-        "SORT_BY_LIFE",
-        "SORT_BY_DISTANCE",
-        "SORT_ASCENDING",
-        "SORT_DESCENDING",
-        "CHIP_CPU_BOT",
-        "CHIP_BOT_CPU",
-        "CPU_BOT_CHIP",
-        "CPU_CHIP_BOT",
-        "BOT_CPU_CHIP",
-        "BOT_CHIP_CPU",
-        "IS_OWNED_BY_ME",
-        "ENEMY",
-        "REDUCE_BY_MISSING_LIFE",
-        "BOT",
-        "CHIP",
-        "CPU",
-        "ANYTHING"
-    ],
+    "globals": {
+        "sharedRegisters": [
+            "sharedA",
+            "sharedB",
+            "sharedC",
+            "sharedD",
+            "sharedE"
+        ],
+        "variables": [
+            "life",
+            "x",
+            "y",
+            "arenaWidth",
+            "arenaHeight",
+            "isAttacker"
+        ],
+        "filter": [
+            "SORT_BY_LIFE",
+            "SORT_BY_DISTANCE"
+        ],
+        "sortdir": [
+            "SORT_ASCENDING",
+            "SORT_DESCENDING"
+        ],
+        "attackPriority": [
+            "CHIP_CPU_BOT",
+            "CHIP_BOT_CPU",
+            "CPU_BOT_CHIP",
+            "CPU_CHIP_BOT",
+            "BOT_CPU_CHIP",
+            "BOT_CHIP_CPU"
+        ],
+        "faction": [
+            "IS_OWNED_BY_ME",
+            "ENEMY"
+        ],
+        "reducer": [
+            "REDUCE_BY_MISSING_LIFE"
+        ],
+        "entityType": [
+            "BOT",
+            "CHIP",
+            "CPU",
+            "ANYTHING"
+        ],
+        "arrays": [
+            "array1",
+            "array2"
+        ]
+    },
     "entrypoints": [
         "update",
         "init"
     ],
     "requiredEntry": [
         "update"
-    ],
-    "arrayVars": [
-        "array1",
-        "array2"
     ],
     "aliases": {
         "willMoveWork": "canMove",
@@ -152,7 +170,9 @@
     ],
     "args": {
         "move": [
-            [ "directions" ],
+            [
+                "enum:directions"
+            ],
             []
         ],
         "moveTo": [
@@ -175,7 +195,7 @@
         ],
         "fireLasers": [
             [
-                "directions"
+                "enum:directions"
             ],
             [
                 "entity"
@@ -196,7 +216,7 @@
         ],
         "melee": [
             [
-                "directions"
+                "enum:directions"
             ],
             [
                 "entity"
@@ -205,7 +225,7 @@
         ],
         "EMP": [
             [
-                "empTargets"
+                "enum:empTargets"
             ]
         ],
         "getX": [
@@ -220,7 +240,7 @@
         ],
         "canMove": [
             [
-                "directions"
+                "enum:directions"
             ],
             []
         ],
@@ -262,7 +282,7 @@
         ],
         "willLasersHit": [
             [
-                "directions"
+                "enum:directions"
             ],
             [
                 "entity"
@@ -282,7 +302,7 @@
         "reduceEntities": [
             [
                 "entity[]",
-                "REDUCE_BY_MISSING_LIFE"
+                "global:reducer"
             ]
         ],
         "getLife": [
@@ -292,15 +312,15 @@
         ],
         "findEntities": [
             [
-                "faction",
-                "entityType",
+                "global:faction",
+                "global:entityType",
                 "boolean"
             ]
         ],
         "findEntitiesInRange": [
             [
-                "faction",
-                "entityType",
+                "global:faction",
+                "global:entityType",
                 "boolean",
                 "number"
             ]
@@ -308,13 +328,13 @@
         "filterEntities": [
             [
                 "entity[]",
-                "filter",
-                "sortdir"
+                "global:filter",
+                "global:sortdir"
             ],
             [
                 "entity[]",
-                "filter[]",
-                "sortdir[]"
+                "global:filter[]",
+                "global:sortdir[]"
             ]
         ],
         "percentChance": [
@@ -386,7 +406,7 @@
         ],
         "setAttackPriority": [
             [
-                "attackPriority"
+                "global:attackPriority"
             ]
         ],
         "isAdjacent": [
@@ -405,7 +425,7 @@
                 "entity"
             ],
             [
-                "directions"
+                "enum:directions"
             ],
             []
         ],

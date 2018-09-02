@@ -59,8 +59,12 @@ for(const terminator of api.terminators) {
 for(const func of api.functions) {
     globals[func] = true;
 }
-for(const global of api.globals) {
-    globals[global] = true;
+for(const globalCategory in api.globals) {
+    if(api.globals.hasOwnProperty(globalCategory) && globalCategory !== "arrays") {
+        for(const global of api.globals[globalCategory]) {
+            globals[global] = true;
+        }
+    }
 }
 for(const alias in api.aliases) {
     globals[alias] = true;

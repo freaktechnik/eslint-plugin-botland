@@ -6,7 +6,7 @@ module.exports = {
     create(context) {
         return {
             'AssignmentExpression:not(:matches([right.type="Identifier"],[right.type="ArrayExpression"],[right.type="CallExpression"])) > Identifier'(node) {
-                if(api.arrayVars.includes(node.name) &&
+                if(api.globals.arrays.includes(node.name) &&
                    (node.parent.right.type !== 'Literal' ||
                     typeof node.parent.right.value !== 'string')) {
                     context.report({
@@ -16,7 +16,7 @@ module.exports = {
                 }
             },
             "MemberExpression"(node) {
-                if(!api.arrayVars.includes(node.object.name)) {
+                if(!api.globals.arrays.includes(node.object.name)) {
                     context.report({
                         node: node.object,
                         messageId: "arrayWrite"

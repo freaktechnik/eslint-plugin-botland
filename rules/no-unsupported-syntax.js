@@ -42,7 +42,7 @@ module.exports = {
                 if(node.parent.type !== "CallExpression" &&
                    (node.parent.type !== "AssignmentExpression" ||
                     node.parent.left.type !== "Identifier" ||
-                    !api.arrayVars.includes(node.parent.left.name))) {
+                    !api.globals.arrays.includes(node.parent.left.name))) {
                     reject(node);
                 }
                 else if(node.parent.type === "AssignmentExpression" &&
