@@ -1,6 +1,7 @@
 "use strict";
 
-const api = require("../api.json");
+const api = require("../api.json"),
+    getValue = require("../get-value");
 
 module.exports = {
     create(context) {
@@ -22,10 +23,7 @@ module.exports = {
                         messageId: "arrayWrite"
                     });
                 }
-                else if((node.property.type !== "Literal" ||
-                         typeof node.property.value !== "number") &&
-                        node.property.type !== "Identifier") {
-                    //TODO try to get type of identifier
+                else if(typeof getValue(node.property, context.getScope(), 0) !== "number") {
                     context.report({
                         node: node.property,
                         messageId: "arrayAccessorNumber"

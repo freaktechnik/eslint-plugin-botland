@@ -12,7 +12,9 @@ ruleTester.run('use-array-variables', rule, {
         'array2[1] = "hi"',
         'array2[0] = test',
         'array1 = []',
-        'array1 = "hi"'
+        'array1 = "hi"',
+        `i = 1;
+array1[i] = 'test';`
     ].concat(pnoexz.scripts, pnoexz.bodies, pnoexz.functions),
     invalid: [
         {
