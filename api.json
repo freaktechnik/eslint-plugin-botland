@@ -82,7 +82,6 @@
         "areSensorsActivated",
         "canActivateSensors",
         "willRepair",
-        "canRepair",
         "setAttackPriority",
         "findMyCpu",
         "isAdjacent",
