@@ -30,9 +30,9 @@ module.exports = {
                     }
                 }
             },
-            "Program > ExpressionStatement > AssignmentExpression[operator=\"=\"][right.type=\"Identifier\"][left.type=\"FunctionExpression\"]"(node) {
-                if(api.entrypoints.includes(node.left.name)) {
-                    context.markVariableAsUsed(node.left.name);
+            "Program > ExpressionStatement > AssignmentExpression[operator=\"=\"][right.type=\"FunctionExpression\"] > Identifier.left"(node) {
+                if(api.entrypoints.includes(node.name)) {
+                    context.markVariableAsUsed(node.name);
                 }
             }
         };

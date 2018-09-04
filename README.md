@@ -9,6 +9,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Bot Land scripts can at most have 15000 characters
 - `entry-point`
   Check that the script has the required `update` function. Marks all entry points as used.
+- `no-args-in-entry-point`
+  Entry points get passed no arguments.
 - `no-big-array`
   Items on arrays can only be assigned to indexes between 0 and 99.
 - `no-code-after-terminator`
@@ -34,7 +36,6 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 - `string-length` `debugLog` strings can at most have 50 characters.
 - `no-nan-in-init` warns about `getX`/`getY` resp. `entity.x`/`entity.y` being `NaN` inside the `init` code path.
 - `no-reassign-loopvar-in-call` warns about loop variables being reset in a function called within the loop.
-- `no-args-in-entry` warns about expecting arguments in the entry point.
 
 ## Configs
 - `recommended`
