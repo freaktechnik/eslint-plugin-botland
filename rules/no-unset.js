@@ -95,8 +95,8 @@ module.exports = {
                 currentFunc = undefined;
             },
             'Program:exit'() {
-                const setVars = new Set();
-                const calledFuncs = new Set();
+                const setVars = new Set(),
+                    calledFuncs = new Set();
                 for(const entryPoint of api.entrypoints) {
                     if(functions.hasOwnProperty(entryPoint)) {
                         walkFunction(entryPoint, functions, setVars, context, calledFuncs);

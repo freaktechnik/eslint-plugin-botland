@@ -56,6 +56,7 @@ const hasReturn = (t, func) => {
     t.is(typeof api.returns[func], "string");
     testArgType(t, api.returns[func]);
 };
+hasReturn.title = (title, func) => `${title} ${func}`;
 
 const hasRequiredEntry = (t, requiredEntry) => {
     t.true(api.entrypoints.includes(requiredEntry));
@@ -99,4 +100,8 @@ for(const func of api.terminators) {
 
 for(const func of api.functions) {
     test('functions', hasFunction, func);
+}
+
+for(const func in api.returns) {
+    test('returns', hasReturn, func);
 }

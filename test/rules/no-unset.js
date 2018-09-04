@@ -27,7 +27,8 @@ b = function(arg) {
 };
 update = function() {
     b();
-};`].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
+};`
+    ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {
             code: 'update = function() { test(); }',
