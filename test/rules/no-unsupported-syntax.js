@@ -218,6 +218,14 @@ func(string);`,
                 column: 1,
                 line: 1
             } ]
+        },
+        {
+            code: 'id = ++sharedA;',
+            errors: [ {
+                message: "UpdateExpression is not supported",
+                column: 6,
+                line: 1
+            } ]
         }
     ]
 });
