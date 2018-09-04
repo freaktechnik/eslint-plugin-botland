@@ -33,6 +33,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   be able to check number of args, type of literals and direction literals.
 - `string-length` `debugLog` strings can at most have 50 characters.
 - `no-nan-in-init` warns about `getX`/`getY` resp. `entity.x`/`entity.y` being `NaN` inside the `init` code path.
+- `no-reassign-loopvar-in-call` warns about loop variables being reset in a function called within the loop.
+- `no-args-in-entry` warns about expecting arguments in the entry point.
 
 ## Configs
 - `recommended`

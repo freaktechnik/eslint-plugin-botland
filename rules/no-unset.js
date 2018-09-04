@@ -2,15 +2,16 @@
 
 const api = require("../api.json"),
     scopeHasVariable = (scope, varname) => scope.set.has(varname) || (scope.upper && scopeHasVariable(scope.upper, varname)),
-    walkFunction = (name, functions, setVars, ctx) => {
+    walkFunction = (name, functions, setVars, ctx, called) => {
         const args = new Set();
+        called.add(name);
         for(const command of functions[name].commands) {
             switch(command.type) {
             case "call":
-                if(functions.hasOwnProperty(command.name)) {
-                    walkFunction(command.name, functions, setVars, ctx);
+                if(functions.hasOwnProperty(command.name) && !called.has(command.name)) {
+                    walkFunction(command.name, functions, setVars, ctx, called);
                 }
-                else if(!scopeHasVariable(command.scope, command.name)) {
+                else if(!scopeHasVariable(command.scope, command.name) && !called.has(command.name)) {
                     ctx.report({
                         node: command.node,
                         message: "Function {{ funcName }} must be set in the top level scope before usage",
@@ -95,9 +96,10 @@ module.exports = {
             },
             'Program:exit'() {
                 const setVars = new Set();
+                const calledFuncs = new Set();
                 for(const entryPoint of api.entrypoints) {
                     if(functions.hasOwnProperty(entryPoint)) {
-                        walkFunction(entryPoint, functions, setVars, context);
+                        walkFunction(entryPoint, functions, setVars, context, calledFuncs);
                     }
                 }
             }

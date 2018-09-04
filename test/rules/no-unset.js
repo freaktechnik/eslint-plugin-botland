@@ -9,9 +9,25 @@ const ruleTester = new AvaRuleTester(test, {
 });
 
 ruleTester.run('no-unset', rule, {
-    valid: [ `update = function(test) {
+    valid: [
+        `update = function(test) {
 sharedA = test;
-}` ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
+}`,
+        `a = function(arg) {
+    if(!arg) {
+        return b(arg);
+    }
+    else {
+        return 0;
+    }
+};
+b = function(arg) {
+    arg = arg || 0;
+    return a(arg);
+};
+update = function() {
+    b();
+};`].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {
             code: 'update = function() { test(); }',

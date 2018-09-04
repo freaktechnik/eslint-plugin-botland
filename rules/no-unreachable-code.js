@@ -5,7 +5,7 @@ const api = require("../api.json"),
     walkFunction = (name, functions, calledFunctions) => {
         calledFunctions.add(name);
         for(const command of functions[name].commands) {
-            if(functions.hasOwnProperty(command.name)) {
+            if(functions.hasOwnProperty(command.name) && !calledFunctions.has(command.name)) {
                 walkFunction(command.name, functions, calledFunctions);
             }
             // else ignore, not this rule's job
