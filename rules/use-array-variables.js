@@ -43,6 +43,7 @@ module.exports = {
             assignType: "Only assign arrays or strings to array variables",
             arrayWrite: "Arrays can only be read and written to and from array variables",
             arrayAccessorNumber: "Property accessor must be a number literal or variable"
-        }
+        },
+        type: "problem"
     }
 };

@@ -52,6 +52,7 @@ module.exports = {
             topLevelFunction: "Top level statements must be function declarations",
             nestedFunction: "Function declarations may not be nested",
             overwriteFunction: "Can not assign value to variable that has already been assigned a function"
-        }
+        },
+        type: "problem"
     }
 };

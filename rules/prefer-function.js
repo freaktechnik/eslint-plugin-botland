@@ -62,6 +62,7 @@ module.exports = {
                 }
             },
             additionalProperties: false
-        } ]
+        } ],
+        type: "suggestion"
     }
 };

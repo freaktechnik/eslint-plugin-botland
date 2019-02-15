@@ -107,6 +107,7 @@ module.exports = {
     },
     meta: {
         description: "Check if all variables are set before usage",
-        schema: []
+        schema: [],
+        type: "suggestion"
     }
 };

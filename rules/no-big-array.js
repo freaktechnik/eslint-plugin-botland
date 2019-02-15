@@ -22,6 +22,7 @@ module.exports = {
         schema: [],
         messages: {
             arraySize: "Can only assign items to indexes between 0 and 99"
-        }
+        },
+        type: "problem"
     }
 };

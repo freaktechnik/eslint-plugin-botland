@@ -53,6 +53,7 @@ module.exports = {
             description: "Terminators in the init entry-point are a no-op",
             recommended: true
         },
-        schema: []
+        schema: [],
+        type: "suggestion"
     }
 };

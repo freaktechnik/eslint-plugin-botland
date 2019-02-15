@@ -25,6 +25,7 @@ module.exports = {
             description: "Checks the length of the script to be storeable by Bot Land",
             recommended: true
         },
-        schema: []
+        schema: [],
+        type: "problem"
     }
 };

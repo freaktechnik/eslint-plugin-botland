@@ -42,6 +42,7 @@ module.exports = {
             description: "Ensures the required turn entry point exists and is a function. Also marks entry points as used variables.",
             recommended: true
         },
-        schema: []
+        schema: [],
+        type: "problem"
     }
 };

@@ -1,7 +1,6 @@
 "use strict";
 
 const api = require("../api.json"),
-    scopeHasVariable = (scope, varname) => scope.set.has(varname) || (scope.upper && scopeHasVariable(scope.upper, varname)),
     walkFunction = (name, functions, calledFunctions) => {
         calledFunctions.add(name);
         for(const command of functions[name].commands) {
@@ -56,7 +55,8 @@ module.exports = {
         };
     },
     meta: {
-        description: "Check if all variables are set before usage",
-        schema: []
+        description: "Check that all code is reachable",
+        schema: [],
+        type: "suggestion"
     }
 };

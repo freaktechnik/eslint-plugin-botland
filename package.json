@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js package.json rules/ test/ configs/ --ext js,json",
-    "test": "nyc ava",
+    "test:js": "nyc ava",
+    "test": "npm run lint && npm run test:js",
     "coverage": "nyc report && codecov"
   },
   "repository": {

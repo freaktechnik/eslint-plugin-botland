@@ -28,6 +28,7 @@ module.exports = {
             description: "Entry points do not get any arguments",
             recommended: true
         },
-        schema: []
+        schema: [],
+        type: "problem"
     }
 };

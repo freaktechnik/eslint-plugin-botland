@@ -86,6 +86,7 @@ module.exports = {
             description: "Bot Land only supports a sub-set of JS syntax",
             recommended: true
         },
-        schema: []
+        schema: [],
+        type: "problem"
     }
 };

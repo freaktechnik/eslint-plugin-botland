@@ -27,6 +27,7 @@ module.exports = {
         schema: [],
         messages: {
             unreachableCode: "Code can not be reached when terminator executes"
-        }
+        },
+        type: "suggestion"
     }
 };
