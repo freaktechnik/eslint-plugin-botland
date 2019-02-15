@@ -26,6 +26,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Check for unsupported JS syntax features.
 - `no-terminator-expression`
   Terminators must always be a statement on their own line.
+- `no-call-entry`
+  Don't manually invoke entry points.
 - `only-global-function-declaration`
   Top level code must be function declarations and function declarations must be on the top level.
 - `prefer-function`
@@ -58,6 +60,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   | `no-unset`                         | error   |
   | `no-unreachable-code`              | error   |
   | `no-terminator-expression`         | error   |
+  | `no-call-entry`                    | error   |
   | `no-terminator-in-init`            | warning |
   | `prefer-function`                  | warning |
   | `no-code-after-terminator`         | warning |

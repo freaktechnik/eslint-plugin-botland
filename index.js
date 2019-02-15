@@ -16,7 +16,8 @@ module.exports = {
         "no-terminator-in-init": require("./rules/no-terminator-in-init"),
         "no-unsupported-syntax": require("./rules/no-unsupported-syntax"),
         "entry-point": require("./rules/entry-point"),
-        "no-terminator-expression": require("./rules/no-terminator-expression")
+        "no-terminator-expression": require("./rules/no-terminator-expression"),
+        "no-call-entry": require("./rules/no-call-entry")
     },
     configs: {
         recommended: require("./configs/recommended")
