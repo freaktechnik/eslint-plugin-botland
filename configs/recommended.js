@@ -85,6 +85,7 @@ module.exports = {
         "botland/no-unset": "error",
         "botland/no-unreachable-code": "error",
         "botland/no-args-in-entry-point": "error",
+        "botland/no-terminator-expression": "error",
         "botland/no-terminator-in-init": "warn",
         "botland/prefer-function": "warn",
         "botland/no-code-after-terminator": "warn"

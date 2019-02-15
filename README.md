@@ -5,6 +5,7 @@
 Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 
 ## Rules
+
 - `code-length`
   Bot Land scripts can at most have 15000 characters
 - `entry-point`
@@ -23,6 +24,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Check for variables to be set when read and functions to be defined on the top level scope.
 - `no-unsupported-syntax`
   Check for unsupported JS syntax features.
+- `no-terminator-expression`
+  Terminators must always be a statement on their own line.
 - `only-global-function-declaration`
   Top level code must be function declarations and function declarations must be on the top level.
 - `prefer-function`
@@ -31,6 +34,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   There are two special variables in Bot Land, `array1` and `array2` to access and mutate arrays. Arrays can not be interacted with in any other way.
 
 ### Future rules to add
+
 - `arg-types` Check argument count and types for methods. Should at the very least
   be able to check number of args, type of literals and direction literals.
 - `string-length` `debugLog` strings can at most have 50 characters.
@@ -38,6 +42,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 - `no-reassign-loopvar-in-call` warns about loop variables being reset in a function called within the loop.
 
 ## Configs
+
 - `recommended`
   Adds all the global functions and variables of Bot Land so eslint doesn't complain
   about them, removes all the ECMA Script globals and adds the following rules:
@@ -52,6 +57,7 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   | `no-big-array`                     | error   |
   | `no-unset`                         | error   |
   | `no-unreachable-code`              | error   |
+  | `no-terminator-expression`         | error   |
   | `no-terminator-in-init`            | warning |
   | `prefer-function`                  | warning |
   | `no-code-after-terminator`         | warning |

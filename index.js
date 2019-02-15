@@ -15,7 +15,8 @@ module.exports = {
         "prefer-function": require("./rules/prefer-function"),
         "no-terminator-in-init": require("./rules/no-terminator-in-init"),
         "no-unsupported-syntax": require("./rules/no-unsupported-syntax"),
-        "entry-point": require("./rules/entry-point")
+        "entry-point": require("./rules/entry-point"),
+        "no-terminator-expression": require("./rules/no-terminator-expression")
     },
     configs: {
         recommended: require("./configs/recommended")
