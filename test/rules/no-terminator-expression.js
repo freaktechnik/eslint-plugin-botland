@@ -6,11 +6,9 @@ import pnoexz from '../_pnoexz';
 const ruleTester = new AvaRuleTester(test, {});
 
 ruleTester.run('no-termiantor-expression', rule, {
-    valid: [
-        `update = function() {
-            fireLasers();
-        }`
-    ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
+    valid: [ `update = function() {
+    fireLasers();
+}` ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {
             code: `update = function() {
