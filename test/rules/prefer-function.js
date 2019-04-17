@@ -23,7 +23,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer canMove over willMoveWork",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'canMove()'
         },
         {
             code: 'randomInteger()',
@@ -31,7 +32,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer randInt over randomInteger",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'randInt()'
         },
         {
             code: 'isDefined()',
@@ -39,7 +41,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer exists over isDefined",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'exists()'
         },
         {
             code: 'distanceTo()',
@@ -47,7 +50,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer getDistanceTo over distanceTo",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'getDistanceTo()'
         },
         {
             code: 'pursueBot()',
@@ -55,7 +59,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer moveTo over pursueBot",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'moveTo()'
         },
         {
             code: 'pursue()',
@@ -63,7 +68,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer moveTo over pursue",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'moveTo()'
         },
         {
             code: 'canSense()',
@@ -71,7 +77,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer canSenseEntity over canSense",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'canSenseEntity()'
         },
         {
             code: 'emp()',
@@ -79,7 +86,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer EMP over emp",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'EMP()'
         },
         {
             code: 'canEmp()',
@@ -87,7 +95,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer canEMP over canEmp",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'canEMP()'
         },
         {
             code: 'count()',
@@ -95,7 +104,8 @@ ruleTester.run('prefer-function', rule, {
                 message: "Prefer size over count",
                 column: 1,
                 line: 1
-            } ]
+            } ],
+            output: 'size()'
         }
     ]
 });

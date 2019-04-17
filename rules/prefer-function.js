@@ -2,6 +2,8 @@
 
 const api = require("../api.json");
 
+//TODO make auto fixable
+
 module.exports = {
     create(context) {
         const [ {
@@ -34,6 +36,9 @@ module.exports = {
                         data: {
                             preferred: preferred[node.callee.name],
                             used: node.callee.name
+                        },
+                        fix(fixer) {
+                            return fixer.replaceText(node.callee, preferred[node.callee.name]);
                         }
                     });
                 }
@@ -63,6 +68,7 @@ module.exports = {
             },
             additionalProperties: false
         } ],
-        type: "suggestion"
+        type: "suggestion",
+        fixable: "code"
     }
 };

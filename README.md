@@ -30,6 +30,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Don't manually invoke entry points.
 - `only-global-function-declaration`
   Top level code must be function declarations and function declarations must be on the top level.
+- `prefer-anything`
+  Prefer the shorter `ANYTHING` over its equivalent `CPU | BOT | CHIP`.
 - `prefer-function`
   Enforce function name to use for aliased functions. Can take an option object with two properties: `exclude` and `prefer`. Both take an array of strings. Functions listed in `exclude` are ignored by the rule. Functions listed in `prefer` are preferred over the default name of the function.
 - `use-array-variables`
@@ -43,7 +45,6 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 - `no-nan-in-init` warns about `getX`/`getY` resp. `entity.x`/`entity.y` being `NaN` inside the `init` code path.
 - `no-reassign-loopvar-in-call` warns about loop variables being reset in a function called within the loop.
 - `prefer-find-entities` prefer (or not) `findEntities` over `findClosest*` functions.
-- `prefer-anything` prefer `ANYTHING` over `CPU | BOT | CHIP`.
 
 ## Configs
 
@@ -51,18 +52,19 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
   Adds all the global functions and variables of Bot Land so eslint doesn't complain
   about them, removes all the ECMA Script globals and adds the following rules:
 
-  | Rule                               | Level   |
-  |------------------------------------|---------|
-  | `code-length`                      | error   |
-  | `entry-point`                      | error   |
-  | `no-unsupported-syntax`            | error   |
-  | `only-global-function-declaration` | error   |
-  | `use-array-variables`              | error   |
-  | `no-big-array`                     | error   |
-  | `no-unset`                         | error   |
-  | `no-unreachable-code`              | error   |
-  | `no-terminator-expression`         | error   |
-  | `no-call-entry`                    | error   |
-  | `no-terminator-in-init`            | warning |
-  | `prefer-function`                  | warning |
-  | `no-code-after-terminator`         | warning |
+  | Rule                               | Level   | Fixable |
+  |------------------------------------|---------|---------|
+  | `code-length`                      | error   | No      |
+  | `entry-point`                      | error   | No      |
+  | `no-unsupported-syntax`            | error   | No      |
+  | `only-global-function-declaration` | error   | No      |
+  | `use-array-variables`              | error   | No      |
+  | `no-big-array`                     | error   | No      |
+  | `no-unset`                         | error   | No      |
+  | `no-unreachable-code`              | error   | No      |
+  | `no-terminator-expression`         | error   | No      |
+  | `no-call-entry`                    | error   | No      |
+  | `no-terminator-in-init`            | warning | No      |
+  | `prefer-function`                  | warning | Yes     |
+  | `no-code-after-terminator`         | warning | No      |
+  | `prefer-anything`                  | warning | Yes     |

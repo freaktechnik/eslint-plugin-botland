@@ -24,7 +24,8 @@ func(string);`,
         'something(entity.y + 0)',
         'something(entity.life + 0)',
         'if(typeof a === "string") {}',
-        'init = function() { return void a(); };'
+        'init = function() { return void a(); };',
+        'findEntities(ALLY, BOT, false)'
     ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [
         {

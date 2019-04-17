@@ -17,7 +17,8 @@ module.exports = {
         "no-unsupported-syntax": require("./rules/no-unsupported-syntax"),
         "entry-point": require("./rules/entry-point"),
         "no-terminator-expression": require("./rules/no-terminator-expression"),
-        "no-call-entry": require("./rules/no-call-entry")
+        "no-call-entry": require("./rules/no-call-entry"),
+        "prefer-anything": require("./rules/prefer-anything")
     },
     configs: {
         recommended: require("./configs/recommended")
