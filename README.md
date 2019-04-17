@@ -42,6 +42,8 @@ Lint your [Bot Land](https://bot.land) bot scripts using eslint.
 - `string-length` `debugLog` strings can at most have 50 characters.
 - `no-nan-in-init` warns about `getX`/`getY` resp. `entity.x`/`entity.y` being `NaN` inside the `init` code path.
 - `no-reassign-loopvar-in-call` warns about loop variables being reset in a function called within the loop.
+- `prefer-find-entities` prefer (or not) `findEntities` over `findClosest*` functions.
+- `prefer-anything` prefer `ANYTHING` over `CPU | BOT | CHIP`.
 
 ## Configs
 

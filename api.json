@@ -92,7 +92,12 @@
         "canCharge",
         "isOnFire",
         "isShielded",
-        "canShield"
+        "canShield",
+        "findMyClosestBot",
+        "findClosestAlliedBot",
+        "findClosestFriendlyChip",
+        "findClosestEnemyChip",
+        "findClosestEnemyCpu"
     ],
     "globals": {
         "sharedRegisters": [
@@ -128,6 +133,7 @@
         ],
         "faction": [
             "IS_OWNED_BY_ME",
+            "ALLY",
             "ENEMY"
         ],
         "reducer": [
@@ -291,7 +297,7 @@
         ],
         "canSenseEntity": [
             [
-                "entity"
+                "entity?"
             ]
         ],
         "exists": [
@@ -360,6 +366,9 @@
                 "any[]"
             ],
             [
+                "object"
+            ],
+            [
                 "string"
             ]
         ],
@@ -412,6 +421,10 @@
         "isAdjacent": [
             [
                 "entity"
+            ],
+            [
+                "x",
+                "y"
             ]
         ],
         "willArtilleryHit": [
@@ -440,6 +453,41 @@
                 "entity"
             ],
             []
+        ],
+        "canTeleport": [
+            [
+                "entity"
+            ],
+            [
+                "x",
+                "y"
+            ]
+        ],
+        "canEMP": [
+            [
+                "enum:empTargets"
+            ],
+            []
+        ],
+        "findEntity": [
+            [
+                "global:faction",
+                "global:entityType",
+                "global:filter",
+                "global:sortdir"
+            ]
+        ],
+        "shield": [
+            [
+                "entity"
+            ],
+            []
+        ],
+        "repair": [
+            [
+                "entity"
+            ],
+            []
         ]
     },
     "returns": {
@@ -456,16 +504,16 @@
         "isZapping": "boolean",
         "isReflecting": "boolean",
         "getDistanceTo": "number",
-        "getEntityAt": "entity",
+        "getEntityAt": "entity?",
         "isEnemyMineAt": "boolean",
         "willMissilesHit": "boolean",
         "willLasersHit": "boolean",
-        "findClosestEnemyBot": "entity",
+        "findClosestEnemyBot": "entity?",
         "canSenseEntity": "boolean",
         "exists": "boolean",
         "reduceEntities": "entity[]",
         "getLife": "number",
-        "findEntity": "entity",
+        "findEntity": "entity?",
         "findEntities": "entity[]",
         "findEntitiesInRange": "entity[]",
         "filterEntities": "entity[]",
@@ -483,13 +531,18 @@
         "areSensorsActivated": "boolean",
         "canActivateSensors": "boolean",
         "willRepair": "boolean",
-        "findMyCpu": "entity",
+        "findMyCpu": "entity?",
         "isAdjacent": "boolean",
         "willArtilleryHit": "boolean",
         "willMeleeHit": "boolean",
         "canCharge": "boolean",
         "isOnFire": "boolean",
         "isShielded": "boolean",
-        "canShield": "boolean"
+        "canShield": "boolean",
+        "findMyClosestBot": "entity?",
+        "findClosestAlliedBot": "entity?",
+        "findClosestEnemyChip": "entity?",
+        "findClosestFriendlyChip": "entity?",
+        "findClosestEnemyCpu": "entity?"
     }
 }

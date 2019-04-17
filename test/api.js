@@ -8,7 +8,8 @@ const KNOWN_TYPES = [
         "number",
         "any",
         "boolean",
-        "string"
+        "string",
+        "object" // No idea what that actually means with size()
     ],
     GLOBAL = "global:",
     ENUM = "enum:";
@@ -27,6 +28,9 @@ const testArgType = (t, argType) => {
     }
     else if(argType.endsWith("[]")) {
         argType = argType.substr(0, argType.length - 2);
+    }
+    else if(argType.endsWith("?")) {
+        argType = argType.substr(0, argType.length - 1);
     }
     if(argType.startsWith(GLOBAL)) {
         t.true(argType.substr(GLOBAL.length) in api.globals);
