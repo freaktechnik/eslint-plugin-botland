@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.com/freaktechnik/eslint-plugin-botland.svg?branch=master)](https://travis-ci.com/freaktechnik/eslint-plugin-botland) [![Greenkeeper badge](https://badges.greenkeeper.io/freaktechnik/eslint-plugin-botland.svg)](https://greenkeeper.io/)
 
-Lint your [Bot Land](https://bot.land) bot scripts using eslint.
+Lint your BotLandScript bot scripts for [Bot Land](https://bot.land) using eslint.
 
 ## Rules
 
 - `code-length`
-  Bot Land scripts can at most have 15000 characters
+  Bot Land scripts can at most have 16500 characters
 - `entry-point`
   Check that the script has the required `update` function. Marks all entry points as used.
 - `no-args-in-entry-point`
