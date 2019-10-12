@@ -1,6 +1,6 @@
 "use strict";
 
-const MAX_LENGTH = 15000;
+const MAX_LENGTH = 16500;
 
 module.exports = {
     create(context) {

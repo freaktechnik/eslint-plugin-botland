@@ -13,9 +13,9 @@ ruleTester.run('code-length', rule, {
         }`
     ].concat(pnoexz.scripts, pnoexz.functions, pnoexz.bodies),
     invalid: [ {
-        code: 'a'.repeat(15001),
+        code: 'a'.repeat(16501),
         errors: [ {
-            message: "Script has 15001 characters out of 15000 allowed characters",
+            message: "Script has 16501 characters out of 16500 allowed characters",
             column: 1,
             line: 1
         } ]
