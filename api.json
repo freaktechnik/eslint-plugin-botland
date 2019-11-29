@@ -113,7 +113,8 @@
             "y",
             "arenaWidth",
             "arenaHeight",
-            "isAttacker"
+            "isAttacker",
+            "turnNumber"
         ],
         "filter": [
             "SORT_BY_LIFE",
