@@ -1,6 +1,6 @@
 # eslint-plugin-botland
 
-[![Build Status](https://travis-ci.com/freaktechnik/eslint-plugin-botland.svg?branch=master)](https://travis-ci.com/freaktechnik/eslint-plugin-botland) [![Greenkeeper badge](https://badges.greenkeeper.io/freaktechnik/eslint-plugin-botland.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/freaktechnik/eslint-plugin-botland.svg?branch=master)](https://travis-ci.com/freaktechnik/eslint-plugin-botland) 
 
 Lint your BotLandScript bot scripts for [Bot Land](https://bot.land) using eslint.
 
