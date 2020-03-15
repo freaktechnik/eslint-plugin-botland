@@ -2,17 +2,17 @@
 
 const api = require("../api.json"),
     scopeHasVariable = (scope, varname) => scope.set.has(varname) || (scope.upper && scopeHasVariable(scope.upper, varname)),
-    walkFunction = (name, functions, setVars, ctx, called) => {
-        const args = new Set();
+    walkFunction = (name, functions, setVars, context, called) => {
+        const arguments_ = new Set();
         called.add(name);
         for(const command of functions[name].commands) {
             switch(command.type) {
             case "call":
                 if(functions.hasOwnProperty(command.name) && !called.has(command.name)) {
-                    walkFunction(command.name, functions, setVars, ctx, called);
+                    walkFunction(command.name, functions, setVars, context, called);
                 }
                 else if(!scopeHasVariable(command.scope, command.name) && !called.has(command.name)) {
-                    ctx.report({
+                    context.report({
                         node: command.node,
                         message: "Function {{ funcName }} must be set in the top level scope before usage",
                         data: {
@@ -23,16 +23,16 @@ const api = require("../api.json"),
                 break;
             case "write":
                 if(command.arg && !setVars.has(command.name)) {
-                    args.add(command.name);
+                    arguments_.add(command.name);
                 }
-                else if(!args.has(command.name) && !command.arg) {
-                    args.delete(command.name);
+                else if(!arguments_.has(command.name) && !command.arg) {
+                    arguments_.delete(command.name);
                 }
                 setVars.add(command.name);
                 break;
             case "read":
                 if(!setVars.has(command.name) && !scopeHasVariable(command.scope, command.name)) {
-                    ctx.report({
+                    context.report({
                         message: "Variable {{ name }} is not set before usage",
                         data: {
                             name: command.name
@@ -45,8 +45,8 @@ const api = require("../api.json"),
                 //Nothing
             }
         }
-        for(const arg of args) {
-            setVars.delete(arg);
+        for(const argument of arguments_) {
+            setVars.delete(argument);
         }
     };
 

@@ -21,44 +21,44 @@ const hasAlias = (t, alias) => {
 };
 hasAlias.title = (title, alias) => `${title}: ${alias}`;
 
-const testArgType = (t, argType) => {
-    t.is(typeof argType, "string");
-    if(argType.endsWith("...")) {
-        argType = argType.substr(0, argType.length - 3);
+const testArgumentType = (t, argumentType) => {
+    t.is(typeof argumentType, "string");
+    if(argumentType.endsWith("...")) {
+        argumentType = argumentType.slice(0, -3);
     }
-    else if(argType.endsWith("[]")) {
-        argType = argType.substr(0, argType.length - 2);
+    else if(argumentType.endsWith("[]")) {
+        argumentType = argumentType.slice(0, -2);
     }
-    else if(argType.endsWith("?")) {
-        argType = argType.substr(0, argType.length - 1);
+    else if(argumentType.endsWith("?")) {
+        argumentType = argumentType.slice(0, -1);
     }
-    if(argType.startsWith(GLOBAL)) {
-        t.true(argType.substr(GLOBAL.length) in api.globals);
+    if(argumentType.startsWith(GLOBAL)) {
+        t.true(argumentType.slice(GLOBAL.length) in api.globals);
     }
-    else if(argType.startsWith(ENUM)) {
-        t.true(argType.substr(ENUM.length) in api.enums);
+    else if(argumentType.startsWith(ENUM)) {
+        t.true(argumentType.slice(ENUM.length) in api.enums);
     }
     else {
-        t.true(KNOWN_TYPES.includes(argType));
+        t.true(KNOWN_TYPES.includes(argumentType));
     }
 };
 
-const hasArgs = (t, func) => {
+const hasArguments = (t, func) => {
     t.true(api.terminators.includes(func) || api.functions.includes(func));
     t.true(Array.isArray(api.args[func]));
-    for(const args of api.args[func]) {
-        t.true(Array.isArray(args));
-        for(const arg of args) {
-            testArgType(t, arg);
+    for(const arguments_ of api.args[func]) {
+        t.true(Array.isArray(arguments_));
+        for(const argument of arguments_) {
+            testArgumentType(t, argument);
         }
     }
 };
-hasArgs.title = (title, func) => `${title}: ${func}`;
+hasArguments.title = (title, func) => `${title}: ${func}`;
 
 const hasReturn = (t, func) => {
     t.true(api.terminators.includes(func) || api.functions.includes(func));
     t.is(typeof api.returns[func], "string");
-    testArgType(t, api.returns[func]);
+    testArgumentType(t, api.returns[func]);
 };
 hasReturn.title = (title, func) => `${title} ${func}`;
 
@@ -91,7 +91,7 @@ for(const alias in api.aliases) {
 }
 
 for(const func in api.args) {
-    test('args for', hasArgs, func);
+    test('args for', hasArguments, func);
 }
 
 for(const requiredEntry of api.requiredEntry) {
