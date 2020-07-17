@@ -96,7 +96,7 @@ func(string);`,
             code: 'array1 = [ 0 ]',
             errors: [ {
                 message: "Can not initialize array when declaring",
-                columnd: 10,
+                column: 10,
                 line: 1
             } ]
         },

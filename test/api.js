@@ -1,7 +1,7 @@
 import test from 'ava';
 import api from '../api.json';
 
-const KNOWN_TYPES = [
+const KNOWN_TYPES = new Set([
         "x",
         "y",
         "entity",
@@ -10,7 +10,7 @@ const KNOWN_TYPES = [
         "boolean",
         "string",
         "object" // No idea what that actually means with size()
-    ],
+    ]),
     GLOBAL = "global:",
     ENUM = "enum:";
 
@@ -39,7 +39,7 @@ const testArgumentType = (t, argumentType) => {
         t.true(argumentType.slice(ENUM.length) in api.enums);
     }
     else {
-        t.true(KNOWN_TYPES.includes(argumentType));
+        t.true(KNOWN_TYPES.has(argumentType));
     }
 };
 

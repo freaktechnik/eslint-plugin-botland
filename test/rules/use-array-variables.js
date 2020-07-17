@@ -52,7 +52,7 @@ array1[i] = 'test';`
         {
             code: 'array1 = 1;',
             errors: [ {
-                messageOd: "assignType",
+                messageId: "assignType",
                 column: 10,
                 line: 1
             } ]

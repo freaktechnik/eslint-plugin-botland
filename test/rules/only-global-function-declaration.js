@@ -59,7 +59,7 @@ ruleTester.run('only-global-function-declaration', rule, {
             code: "func = function() { func = 'b'; }",
             errors: [ {
                 messageId: "overwriteFunction",
-                columnd: 22,
+                column: 21,
                 line: 1
             } ]
         }
