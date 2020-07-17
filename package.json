@@ -7,9 +7,7 @@
     "lint": "eslint index.js package.json rules/ test/ configs/ --ext js,json",
     "test:js": "nyc ava",
     "test": "npm run lint && npm run test:js",
-    "coverage": "nyc report && codecov",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "coverage": "nyc report && codecov"
   },
   "repository": {
     "type": "git",
@@ -60,8 +58,5 @@
   "ava": {
     "babel": true
   },
-  "snyk": true,
-  "dependencies": {
-    "snyk": "^1.319.2"
-  }
+  "dependencies": {}
 }
